@@ -2,7 +2,8 @@
  *
  * Author: Garrett Thompson
  *
- * More complete description here...
+ * The goal of this lab was to create a random float value between two values the user gives
+ * that could then be classified within the four quartiles of the given range.
  */
 
 // The include section adds extra definitions from the C++ standard library.

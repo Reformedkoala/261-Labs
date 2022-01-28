@@ -1,8 +1,8 @@
-/* CSCI 261 Lab XX (_INSERT_LAB_HERE_): XXXX (_GIVE_BRIEF_DESCRIPTION_HERE_)
+/* CSCI 261 Lab 1B: README.TXT and CL Practice
  *
- * Author: XXXX (_INSERT_YOUR_NAME_HERE_)
+ * Author: Garrett Thompson
  *
- * More complete description here...
+ * Code just compiles hello world, but I had to fill out the readme file and navigate around using the CLI.
  */
 
 // The include section adds extra definitions from the C++ standard library.

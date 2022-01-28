@@ -2,7 +2,9 @@
  *
  * Author: Garrett Thompson
  *
- * XXXXXXXX (MORE_COMPLETE_DESCRIPTION_HERE)
+ * This program allows the user to play a game of Rock, Paper, Scissors with the computer by having them pick a value and then the computer
+ * picking a random value between 0, 1, and 2.  Then determining if that is Rock, Paper, or Scissors respectively.  The game also keeps track of 
+ * the amount of times a user wins, loses, and ties and prints it out once the user quits.
  */
 // The include section adds extra definitions from the C++ standard library.
 #include <iostream> // For cin, cout, etc.

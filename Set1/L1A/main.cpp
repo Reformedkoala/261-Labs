@@ -1,10 +1,9 @@
 /* CSCI 261 Lab 1A: Compiling Hello World, Ohm's law, and Pythagorean's theorem
  *
  * Author: Garrett Thompson
- *
- * More complete description here...
- * Takes a user value in for both voltage and resistance to calculate current.  It then takes in a value for 2 legs of a triangle to 
- * calculate the hypotenuse using pythagoreans theorem.
+ * 
+ * Prints out Hello World.  Takes a user value in for both voltage and resistance to calculate current.  
+ * It then takes in a value for 2 legs of a triangle to calculate the hypotenuse using pythagoreans theorem.
  */
 
 // The include section adds extra definitions from the C++ standard library.
@@ -19,7 +18,6 @@ using namespace std;
 int main() {
 
   /******** INSERT YOUR CODE BELOW HERE ********/
-
   cout << "Hello world!" << endl; // print Hello world! to the screen
   double voltage;
   double resistance;
@@ -29,7 +27,7 @@ int main() {
   cout << "Enter the resistance: ";
   cin >> resistance;
   current = voltage / resistance;
-  cout << "The current is: " << current << endl;
+  cout << "The current is: " << current << " Amps" << endl;
   double x;
   double y;
   double hypotenuse;

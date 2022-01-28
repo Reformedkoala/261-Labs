@@ -2,7 +2,7 @@
  *
  * Author: Garrett Thompson
  *
- * XXXXXXXX (MORE_COMPLETE_DESCRIPTION_HERE)
+ * The code just compiles hello world once again, but this was to practice using a make file and how to create the script for one.
  */
 // The include section adds extra definitions from the C++ standard library.
 #include <iostream> // For cin, cout, etc.

@@ -2,7 +2,7 @@
  *
  * Author: Garrett Thompson
  *
- * XXXXXXXX (MORE_COMPLETE_DESCRIPTION_HERE)
+ * This lab gave practice with loop syntax and explains the functionality of including loops to shorten repetitive code.
  */
 // The include section adds extra definitions from the C++ standard library.
 #include <iostream> // For cin, cout, etc.
