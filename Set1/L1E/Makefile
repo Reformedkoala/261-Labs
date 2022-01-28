@@ -9,4 +9,4 @@ $(TARGET): $(OBJECTS)
 	$(CXX) -o $@ $^
 
 %.o: %.cpp
-	$(CXX) -o $@ -c $<
+	$(CXX) $(CFLAGS) -o $@ -c $<
