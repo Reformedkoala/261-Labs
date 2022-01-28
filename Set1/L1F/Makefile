@@ -2,7 +2,7 @@ TARGET = L1F
 SRC_FILES = main.cpp
 
 CXX = g++
-
+CFLAGS = -Wall
 OBJECTS = $(SRC_FILES:.cpp=.o)
 
 ifeq ($(shell echo "Windows"), "Windows")
@@ -18,7 +18,7 @@ $(TARGET): $(OBJECTS)
 	$(CXX) -o $@ $^
 
 %.o: %.cpp
-	$(CXX) -o $@ -c $<
+	$(CXX) $(CFLAGS) -g -o $@ -c $<
 
 clean:
 	$(DEL) $(TARGET) $(OBJECTS)
