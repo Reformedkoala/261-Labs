@@ -50,8 +50,7 @@ ls
 cd .\data\
 
 - rename the misspelled file fil2.txt to be file2.txt
-cp fil2.txt file2.txt
-rm fil2.txt
+mv fil2.txt file2.txt
 
 - copy file1.txt to be file3.txt
 cp file1.txt file3.txt

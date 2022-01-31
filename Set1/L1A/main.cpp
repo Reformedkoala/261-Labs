@@ -19,18 +19,21 @@ int main() {
 
   /******** INSERT YOUR CODE BELOW HERE ********/
   cout << "Hello world!" << endl; // print Hello world! to the screen
+  // Initializing variables used within program
   double voltage;
   double resistance;
   double current;
+  double x;
+  double y;
+  double hypotenuse;
+  // Asking for user input to calculate the current from voltage and resistance using Ohm's Law
   cout << "Enter the voltage: ";
   cin >> voltage;
   cout << "Enter the resistance: ";
   cin >> resistance;
   current = voltage / resistance;
   cout << "The current is: " << current << " Amps" << endl;
-  double x;
-  double y;
-  double hypotenuse;
+  // Asking for user input to calculate distance based on pythagoreans theorem
   cout << "Enter the first side: ";
   cin >> x;
   cout << "Enter the second side: ";
@@ -38,7 +41,7 @@ int main() {
   x = x * x;
   y = y * y;
   hypotenuse = sqrt(x + y);
-  cout << "The hypotenuse is: " << hypotenuse << endl;
+  cout << "The distance is: " << hypotenuse << endl;
   /******** INSERT YOUR CODE ABOVE HERE ********/
 
   return 0; // signals the operating system that our program ended OK.

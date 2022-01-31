@@ -18,23 +18,27 @@ using namespace std;
 
 // Must have a function named "main", which is the starting point of a C++ program.
 int main() {
+  // Seeding the random function in order to make sure our random values are somewhat truly random
   srand(time(0));
   rand();
+  // Initializing variables to be using within our function
   float min;
   float max;
   cout << "Enter the minimum value: ";
   cin >> min;
   cout << "Enter the maximum value: ";
   cin >> max;
-  float rand_float = rand() / (float)RAND_MAX + (max - min);
+  // Generates the random value using math we learned in class
+  float rand_float = rand() / (float)RAND_MAX * (max - min) + min;
   cout << "A random value is: " << rand_float << endl;
-  if(rand_float >= 0 && rand_float < max / 4) {
+  // Determines what quartile the random value is in
+  if (rand_float >= min && rand_float < (float)((max - min) / 4) + min) {
     cout << "This is in the first quartile" << endl;
   }
-  else if(rand_float >= max / 4 && rand_float < max / 4 * 2) {
+  else if ((rand_float >= (float)(((max - min) / 4) + min) && (rand_float < (float)((((max - min) / 4) * 2) + min)))) {
     cout << "This is in the second quartile" << endl;
   }
-  else if(rand_float >= max / 4 * 2 && rand_float < max / 4 * 3) {
+  else if((rand_float >= (float)((((max - min) / 4)  * 2) + min)) && (rand_float < (float)((((max - min) / 4) * 3) + min))) {
     cout << "This is in the third quartile" << endl;
   }
   else{

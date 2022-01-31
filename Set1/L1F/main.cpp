@@ -39,8 +39,8 @@ int main() {
 // SECTION I: update comment below on how you fixed this section's code, and tests run
 // that show loop is working properly
 // FIX = Fixing the syntax error of ci instead of cin and fixing the fact that it has to be less then or equal to because otherwise it won't
-// add the final value it needs to give the correct output.  Tested 1-5 and it gave 15 which is correct now.
-// TESTS:
+// add the final value it needs to give the correct output.  
+// TESTS: Tested 1-5 and it gave 15 which is correct now.
 
     cout << endl;
     cout << "******************" << endl;
@@ -62,7 +62,7 @@ int main() {
 // FIX = Fixed syntax error on cot instead of cout.  Fixed stream direction error of the cout being >> instead of <<.  Fixed the fact that total
 // was being reset everytime in the while loop instead of being added to.  Tested with number of items being 5 and the price of them being
 // different each time to check if they add up correctly now.
-// TESTS:
+// TESTS: Tested with 2 and 5 items with prices of 10.  Added up to the correct amount of 20 and 50 respectively
 
     cout << endl;
     cout << "******************" << endl;
@@ -92,9 +92,8 @@ int main() {
 // FIX = No semicolon on what was line 105 so I added it.  Sum2 was never actually intialized as 0 so you can't add anything to it.  I added an
 // intialization to sum2.  Counter2 was never initialized nor was it being iterated as it increased each time in the loop.  Also the conditional
 // for the do-while loop was wrong and would result in it always stopping after 1 time.  Changed conditional to compare to numIter2 instead.
-// Just a formatting thing but instead of the user input being on a seperate line I changed it to be on the same line.  Tested the loop
-// with random values to make sure it was correctly outputting.
-// TESTS:
+// Just a formatting thing but instead of the user input being on a seperate line I changed it to be on the same line.  
+// TESTS: Tested the loop with random values to make sure it was correctly outputting.  Tested 5and it gave the correct output of 15
 
     cout << endl;
     cout << "******************" << endl;
@@ -124,7 +123,7 @@ int main() {
 // FIX = Mainly a logic error in the for loop causing it to add up all numbers greater then 0 essentially starting at where you enter though.
 // Fixed it so that it now iterates from 1 squared which is just 1 to the number you give it but squared like it should.  Fixed a logic error
 // that would cause it to not be inclusive as well.  Tested the loop with random values that gave the correct output.
-// TESTS:
+// TESTS: Tested 3 and it gave the correct output of 285
 
     cout << endl;
     cout << "******************" << endl;
@@ -148,7 +147,7 @@ int main() {
 // FIX = Fixed comment syntax error.  Fixed the fact some variables were not initialized.  Fixed a logic error in the fact the loop would only 
 // iterate from 1 to 10.  Fixed another logic error in the it was incrementing the loop outside of itself.  Tested the loop with random values that
 // were correct.
-// TESTS:
+// TESTS: Tested with 2 and it gave the correct output of 1296
 
     cout << endl;
     cout << "******************" << endl;
@@ -163,7 +162,7 @@ int main() {
     int sum4 = 0;
     cin >> numIter4;
 
-    while (counter4 <= numIter4) {
+    while (counter4 <= numIter4*numIter4*numIter4) {
         sum4 += (counter4 * counter4 * counter4);
         counter4++;
     }
