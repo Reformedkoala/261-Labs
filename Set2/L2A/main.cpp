@@ -5,14 +5,34 @@
  * 
  */
 // The include section adds extra definitions from the C++ standard library.
-#include <iostream> // For cin, cout, etc.
-
-// We will (most of the time) use the standard library namespace in our programs.
+#include <fstream>
+#include <iostream>
 using namespace std;
 
-// Define any constants below this comment.
-
-// Must have a function named "main", which is the starting point of a C++ program.
 int main() {
-  cout << "Hello World!" << endl;
+
+  ifstream filein("circle1.txt");
+  if (filein.fail()) {
+    cerr << "Error opening input file";
+    return -1;
+  }
+
+  float piVal;
+  filein >> piVal;
+  float radius;
+  filein >> radius;
+
+  filein.close();
+
+  ofstream fileout("area.txt");
+  if (fileout.fail()) {
+    cerr << "Error opening input file";
+    return -2;
+  }
+  
+  fileout << "writing to file..." << endl;
+  fileout << piVal << endl;
+  fileout << radius << endl;
+
+  return 0; 
 }
