@@ -1,4 +1,4 @@
-TARGET = L2E
+TARGET = L2A
 SRC_FILES = main.cpp
 CXX = g++
 CFLAGS = -Wall
