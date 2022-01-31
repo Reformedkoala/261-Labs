@@ -11,28 +11,31 @@ using namespace std;
 
 int main() {
 
-  ifstream filein("circle1.txt");
-  if (filein.fail()) {
+  ifstream secretMessage("secretMessage.txt");
+  if (secretMessage.fail()) {
     cerr << "Error opening input file";
     return -1;
   }
-
-  float piVal;
-  filein >> piVal;
-  float radius;
-  filein >> radius;
-
-  filein.close();
-
-  ofstream fileout("area.txt");
-  if (fileout.fail()) {
-    cerr << "Error opening input file";
+  ofstream decipheredMessage("decipheredMessage.txt");
+  if (decipheredMessage.fail()) {
+    cerr << "Error opening output file";
     return -2;
   }
   
-  fileout << "writing to file..." << endl;
-  fileout << piVal << endl;
-  fileout << radius << endl;
-
+  char c;
+  while ( secretMessage.get(c) ) {
+    if (c == '\n'){
+      decipheredMessage << c;
+    }
+    else if (c == '~') {
+      decipheredMessage << ' ';
+    }
+    else{
+      decipheredMessage << (char)(c + 1);
+    }
+    // c is now assigned the next character from the file
+  }
+  secretMessage.close();
+  decipheredMessage.close();
   return 0; 
 }
