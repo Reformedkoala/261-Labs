@@ -1,9 +1,8 @@
-TARGET = L2A.exe
+TARGET = L2B.exe
 SRC_FILES = main.cpp
 CXX = g++
 CFLAGS = -Wall
 OBJECTS = $(SRC_FILES:.cpp=.o)
-
 
 $(TARGET): $(OBJECTS)
 	$(CXX) -o $@ $^
