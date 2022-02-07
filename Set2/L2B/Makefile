@@ -1,11 +1,25 @@
-TARGET = L2B.exe
+TARGET = L2B
 SRC_FILES = main.cpp
+
 CXX = g++
-CFLAGS = -Wall
+CFLAGS = -Wall -g
+
 OBJECTS = $(SRC_FILES:.cpp=.o)
+
+ifeq ($(shell echo "Windows"), "Windows")
+	TARGET := $(TARGET).exe
+	DEL = del
+else
+	DEL = rm
+endif
+
+all: $(TARGET)
 
 $(TARGET): $(OBJECTS)
 	$(CXX) -o $@ $^
 
 %.o: %.cpp
-	$(CXX) $(CFLAGS) -g -o $@ -c $<
+	$(CXX) $(CFLAGS) -o $@ -c $<
+
+clean:
+	$(DEL) $(TARGET) $(OBJECTS)
