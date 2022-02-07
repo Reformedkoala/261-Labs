@@ -1,6 +1,6 @@
 /* CSCI 261: Function Prototypes and Call Stack
  *
- * Author: XXXX (_INSERT_YOUR_NAME_HERE_)
+ * Author: Garrett Thompson
  *
  *    This program illustrates a variety of common errors.
  *    Fix the errors in each section.
@@ -28,10 +28,29 @@ WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
 FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
 OTHER DEALINGS IN THE SOFTWARE.
 
- */
+*/
 
 #include <iostream>
 using namespace std;
+
+void print_result(int a, int b, int result, char op);
+void print_options();
+void add(int a, int b);
+void sub(int a, int b);
+void mult(int a, int b);
+void divide(int a, int b);
+void turn_calculator_on();
+
+/**
+ * @brief main entry point to our program
+ * 
+ * @return int 0 for success
+ */
+int main() {
+    cout << "Hello world" << endl;
+    turn_calculator_on();
+    return 0;
+}
 
 /**
  * @brief Formats values in the form "a op b = result"
@@ -152,15 +171,4 @@ void turn_calculator_on() {
             cout << "Invalid choice" << endl;
         }
     }
-}
-
-/**
- * @brief main entry point to our program
- * 
- * @return int 0 for success
- */
-int main() {
-    cout << "Hello world" << endl;
-    turn_calculator_on();
-    return 0;
 }
