@@ -1,0 +1,13 @@
+/*
+int x, y;
+    if (cin.fail()) {
+        cin.clear();
+        char badChar;
+        do {badChar = cin.get();} while(badChar != '/n');
+        } else {
+        cout << "x is:" << x;
+        cout << "y is:" << y;
+        char badChar;
+        do {badChar = cin.get();} while(badChar != '/n');
+    }
+ */
