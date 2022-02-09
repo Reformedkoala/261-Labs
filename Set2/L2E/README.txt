@@ -7,10 +7,10 @@ Build your program.
 Run the executable through the debugger.  Perform the following steps.  For each step, add the command that performs that task.
 
 1a. Add a breakpoint inside the print_result() function.
-
+b calculator_functions.cpp 13
 
 1b. What different in how we need to specify the breakpoint compared to L2D?
-
+Which file it is in
 
 2. Run the program, requesting to add 4 and 5
 
