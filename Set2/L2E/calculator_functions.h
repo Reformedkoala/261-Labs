@@ -1,3 +1,5 @@
+#ifndef CALCULATOR_FUNCTIONS_H
+
 void turn_calculator_on();
 void print_result(int a, int b, int result, char op);
 void print_options();
