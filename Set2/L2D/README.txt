@@ -11,7 +11,6 @@ b 63
 
 2. Run the program, requesting to add 4 and 5
 r
-4 5
 
 3. Print the stack trace
 bt
