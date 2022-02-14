@@ -17,5 +17,9 @@ using namespace std;
 
 
 int main() {
+  print_file_options();
+  int userImage = get_user_input(1,3);
+  print_operation_options();
+  int userApply = get_user_input(1,2);
   
 }
