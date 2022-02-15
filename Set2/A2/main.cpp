@@ -31,5 +31,4 @@ int main() {
   read_header_information(inputFile, width, height, maxRgb);
   write_header_information(outputFile, width, height, maxRgb);
   read_and_write_modified_pixels(inputFile, outputFile, userApply, width, height, maxRgb);
-  
 }
