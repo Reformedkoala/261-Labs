@@ -1,5 +1,5 @@
 TARGET = L3C
-SRC_FILES = main.cpp ppm_functions.cpp
+SRC_FILES = main.cpp 
 
 CXX = g++
 CFLAGS = -Wall -g

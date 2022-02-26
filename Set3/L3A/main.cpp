@@ -17,5 +17,38 @@ using namespace std;
 
 
 int main() {
-  
+  int i;
+  int userIn;
+  int userArray[15];
+  int size = 15;
+  int maximum;
+  int minimum;
+  cout << "Enter up to 15 non-zero numbers.  Enter zero to signal the end of data or enter all 15 items:" << endl;
+  for (i = 0; i < 15; i++){
+    cout << "Number " << i+1 << ": ";
+    cin >> userIn;
+    if (userIn == 0) {
+        size = i;
+        break;
+    }
+    else{
+        userArray[i] = userIn;
+    }
+  }
+  cout << "The numbers are: ";
+  maximum = userArray[0];
+  minimum = userArray[0];
+  for (i = 0; i < size; i++){
+    if(maximum < userArray[i]){
+      maximum = userArray[i];
+    }
+    if(minimum > userArray[i]){
+      minimum = userArray[i];
+    }   
+    cout << userArray[i] << " ";
+  }
+  cout << endl;
+  cout << "The maximum value is: " << maximum << endl;
+  cout << "The minimum value is: " << minimum << endl;
+  cout << "Have a nice day!" << endl;
 }
