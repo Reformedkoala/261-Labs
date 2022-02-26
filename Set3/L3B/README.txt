@@ -1,6 +1,6 @@
 /* CSCI261 Lab
  *
- * Author: YOUR NAME
+ * Author: Garrett Thompson
  *
  * This program executes some tests that illustrate the properties
  * and behaviors of strings.
