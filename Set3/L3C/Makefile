@@ -1,4 +1,4 @@
-TARGET = L3A
+TARGET = L3C
 SRC_FILES = main.cpp ppm_functions.cpp
 
 CXX = g++
