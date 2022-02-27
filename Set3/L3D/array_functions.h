@@ -10,7 +10,7 @@
  * 
  * @note Runtime of function O(?)
  */
-array_allocate();
+void array_allocate(int* &pArray, const int INIT_SIZE);
 
 /**
  * @brief Returns the value of the element at a target position.  If the
@@ -23,20 +23,20 @@ array_allocate();
  * 
  * @note Runtime of function O(?)
  */
-array_get_element_at();
+int array_get_element_at(const int* pARRAY, const int SIZE, const int POS);
 
 /**
  * @brief Sets the value of the element at a target position.  If the
  * position is out of range, does nothing.
  * 
- * @param pARRAY pointer to integer array
+ * @param pArray pointer to integer array
  * @param SIZE size of the array as an integer
  * @param POS position to set value at
  * @param VALUE value to place at target position
  * 
  * @note Runtime of function O(?)
  */
-array_set_element_at();
+void array_set_element_at(int* pArray, const int SIZE, const int POS, const int VALUE);
 
 /**
  * @brief Deallocates an integer array, returning its memory back to
@@ -48,7 +48,7 @@ array_set_element_at();
  * 
  * @note Runtime of function O(?)
  */
-array_deallocate();
+void array_deallocate(int* &pArray, int &size);
 
 /**
  * @brief Inserts a value at a target position.  If the position is
@@ -63,7 +63,7 @@ array_deallocate();
  * 
  * @note Runtime of function O(?)
  */
-array_insert_at_position();
+void array_insert_at_position(int* &pArray, int &size, const int POS, const int VALUE);
 
 /**
  * @brief Returns the minimum value within the array.  If array size is
@@ -75,7 +75,7 @@ array_insert_at_position();
  * 
  * @note Runtime of function O(?)
  */
-array_min();
+int array_min(const int* pARRAY, const int SIZE);
 
 /**
  * @brief Returns the maximum value within the array.  If array size is
@@ -87,7 +87,7 @@ array_min();
  * 
  * @note Runtime of function O(?)
  */
-array_max();
+int array_max(const int* pARRAY, const int SIZE);
 
 /**
  * @brief Returns the first position within an array a target value 
@@ -101,7 +101,7 @@ array_max();
  * 
  * @note Runtime of function O(?)
  */
-array_find();
+int array_find(const int* pARRAY, const int SIZE, const int TARGET);
 
 /**
  * @brief Removes a value at a target position.  If the position is
@@ -115,6 +115,6 @@ array_find();
  * 
  * @note Runtime of function O(?)
  */
-array_remove_from_position();
+void array_remove_from_position(int* &pArray, int &size, const int POS);
 
 #endif
