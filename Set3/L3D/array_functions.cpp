@@ -40,7 +40,7 @@ void array_deallocate(int* &pArray, int &size){
 }
 
 void array_insert_at_position(int* &pArray, int &size, const int POS, const int VALUE){
-  int *pArrayNew = new signed int[size+1];
+  int* pArrayNew = new signed int[size+1];
   int i;
   if(POS > size){
     for (i=0; i < size+1; i++){
@@ -79,6 +79,7 @@ void array_insert_at_position(int* &pArray, int &size, const int POS, const int 
   pArray = pArrayNew;
   delete pArrayNew;
   size +=1;
+  
 }
 
 int array_min(const int* pARRAY, const int SIZE){

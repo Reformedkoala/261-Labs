@@ -75,7 +75,7 @@ bool run_all_tests()  {
     array_insert_at_position(pArray, currArraySize, currArraySize+1, 5);
     totalPassed += test_int(               totalNumTests,  "Testing array_insert size",           currArraySize , 1 );
     totalPassed += test_int(               totalNumTests,  "Testing array_insert_at() back",      array_get_element_at(pArray, currArraySize, 0), 5 );
-
+    
     array_insert_at_position(pArray, currArraySize, currArraySize, 3);
     totalPassed += test_int(               totalNumTests,  "Testing array_insert size",           currArraySize , 2 );
     totalPassed += test_int(               totalNumTests,  "Testing array_insert_at() back",      array_get_element_at(pArray, currArraySize, 1), 3 );
@@ -141,4 +141,5 @@ bool run_all_tests()  {
     cout << endl;
     cout << "Tests Passed: " << setw(3) << right << totalPassed << " / " << setw(3) << totalNumTests << " (" << setprecision(0) << fixed << totalPassed * 100.0f / totalNumTests << "%)" << endl << endl;
     return (totalPassed == totalNumTests);
+    
 }
