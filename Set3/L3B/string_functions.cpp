@@ -44,8 +44,6 @@ string string_replace(const string STR, const string TEXT_TO_REPLACE, const stri
 
 string string_first_word(const string STR)  {
     string result = STR.substr(0, STR.find(' '));
-
-    // TODO 07: set result to the first word from the string
     return result;
 }
 
@@ -54,7 +52,6 @@ string string_remove_first_word(const string STR)  {
     str = str.erase(0, str.find(' '));
     if(str.find(' ')==0){str = str.erase(0,1);}
     string result = str;
-    // TODO 08: set result to be the string with the first word removed
     return result;
 }
 
@@ -63,7 +60,7 @@ string string_second_word(const string STR)  {
     int second = STR.find(' ', first + 1);
     string result = STR.substr(first+1, second-first-1);
     if(STR.find(' ') == -1){string edge = ""; return edge;}
-    // TODO 09: set result to be the second word from the string
+
     return result;
 }
 
@@ -73,11 +70,10 @@ string string_third_word(const string STR)  {
     int third = STR.find(' ', second + 1);
     string result = STR.substr(second+1, third-second-1);
     if(second == -1){string edge = ""; return edge;}
-    // TODO 10: set result to be the third word from the string
     return result;
 }
 
-string string_nth_word(const string STR, const int N)  {
+string string_nth_word(const string STR, const int N) {
     string result = STR;
     // TODO 11: set result to be the nth word from the string
     return result;
@@ -95,7 +91,6 @@ string string_substitute(const string STR, const char TARGET, const char REPLACE
       str += tempChar;
     }
     string result = str;
-    // TODO 12: set result to be the string with all instances of TARGET replaced
     return result;
 }
 
@@ -111,7 +106,6 @@ string string_to_lower(const string STR) {
       str += (char)tempChar;
     }
     string result = str;
-    // TODO 13: convert all characters to lower case
     return result;
 }
 
@@ -127,7 +121,6 @@ string string_to_upper(const string STR) {
       str += (char)tempChar;
     }
     string result = str;
-    // TODO 14: convert all characters to upper case
     return result;
 }
 
@@ -136,6 +129,5 @@ int string_compare(const string LHS, const string RHS) {
     if(LHS == RHS){result = 0;}
     else if(LHS<RHS){result = -1;}
     else{result = 1;}
-    // TODO 15: compare LHS and RHS
     return result;
 }

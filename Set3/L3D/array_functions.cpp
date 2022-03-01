@@ -77,7 +77,6 @@ void array_insert_at_position(int* &pArray, int &size, const int POS, const int 
   }
   delete pArray;
   pArray = pArrayNew;
-  delete pArrayNew;
   size +=1;
   
 }
@@ -105,10 +104,12 @@ int array_max(const int* pARRAY, const int SIZE){
 }
 
 int array_find(const int* pARRAY, const int SIZE, const int TARGET){
+
   return 0;
 }
 
 void array_remove_from_position(int* &pArray, int &size, const int POS){
+  /*
   int *pArrayNew = new signed int[size-1];
   int i;
   if(POS > size){
@@ -146,6 +147,6 @@ void array_remove_from_position(int* &pArray, int &size, const int POS){
   }
   delete pArray;
   pArray = pArrayNew;
-  delete pArrayNew;
   size -=1;
+  */
 }

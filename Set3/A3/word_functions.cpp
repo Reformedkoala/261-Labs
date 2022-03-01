@@ -94,11 +94,11 @@ vector<string> filter_unique_words(vector<string> &allWords){
 }
 
 void count_letters(unsigned int letters[], const vector<string> &ALL_WORDS){
-  string tempString;
+  int curLetter;
   for(int i=0; i < ALL_WORDS.size(); i++){
-    tempString = ALL_WORDS.at(i);
-    for(int j=0; j < tempString.size(); j++){
-      letters[tempString.at(j)-65] += 1;
+    for(int j=0; j < ALL_WORDS.at(i).size(); j++){
+      curLetter = ALL_WORDS.at(i).at(j) - 65;
+      letters[curLetter] += 1;
     }
   }
 }
@@ -117,5 +117,33 @@ void print_letter_counts(unsigned int letters[]){
 }
 
 void print_max_min_letter(unsigned int letters[]){
-  
+  int maxLength = to_string(letters[0]).length();
+  int maxPercentSize;
+  char maxLetter;
+  int maxLetterValue = letters[0];
+  char minLetter;
+  int minLetterValue = letters[0];
+  double maxPercent;
+  double minPercent;
+  int sum = 0;
+  for(int i=0; i < 26; i++){
+    sum += (int)letters[i];
+    if (maxLength < to_string(letters[i]).length()){
+      maxLength = to_string(letters[i]).length();
+    }
+    if (maxLetterValue < letters[i]){
+      maxLetterValue = letters[i];
+      maxLetter = (char)(i + 65);
+    }
+    if (minLetterValue > letters[i]){
+      minLetterValue = letters[i];
+      minLetter = (char)(i + 65);
+    }
+  }
+  maxPercent = ((double)maxLetterValue / sum)*100;
+  minPercent = ((double)minLetterValue / sum)*100;
+  maxPercentSize = to_string(((double)maxLetterValue / sum)*100.000).length() - 3;
+  cout << fixed << right << "Least Frequent Letter: " << minLetter << setw(maxLength+1) << minLetterValue << " ( " << setw(maxPercentSize) << setprecision(3) << ((double)minLetterValue/sum)*100.000 << "%)\n";
+  cout << fixed << right << " Most Frequent Letter: " << maxLetter << setw(maxLength+1) << maxLetterValue << " ( " << setw(maxPercentSize) << setprecision(3) << ((double)maxLetterValue/sum)*100.000 << "%)\n";
+
 }
