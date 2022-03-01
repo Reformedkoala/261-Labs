@@ -16,7 +16,7 @@ void capitalize_words(vector<string> &allWords);
 
 vector<string> filter_unique_words(vector<string> &allWords);
 
-void count_letters(unsigned int letters[], vector<string> &allWords);
+void count_letters(unsigned int letters[], const vector<string> &ALL_WORDS);
 
 void print_letter_counts(unsigned int letters[]);
 

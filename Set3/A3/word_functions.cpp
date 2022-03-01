@@ -34,20 +34,12 @@ bool open_file(ifstream &inputFile, string filename){
 }
 
 vector<string> read_words_from_file(ifstream &inputFile){
-  char tempChar;
   string tempString;
   vector<string> allWords;
-  while (inputFile.get(tempChar) ){
-    if ((tempChar == ' ' || tempChar == '\n') && tempString.length() > 0){
-      allWords.push_back(tempString);
-      tempString.clear();
-      continue;
-    }
-    else if(tempChar != '\n' && tempChar != ' '){ 
-      tempString += tempChar;
-    }
+  while (inputFile >> tempString){
+    allWords.push_back(tempString);
+    tempString.clear();
   }
-  allWords.push_back(tempString);
   return allWords;
 }
 
@@ -97,22 +89,33 @@ vector<string> filter_unique_words(vector<string> &allWords){
       uniqueWords.push_back(allWords.at(i));
     }
   }
-  /*
-  for(int i=0; i < uniqueWords.size(); i++){
-    cout << uniqueWords.at(i) << " ";
-  }
-  */
+  
   return uniqueWords;
 }
 
-void count_letters(unsigned int letters[], vector<string> &allWords){
-
+void count_letters(unsigned int letters[], const vector<string> &ALL_WORDS){
+  string tempString;
+  for(int i=0; i < ALL_WORDS.size(); i++){
+    tempString = ALL_WORDS.at(i);
+    for(int j=0; j < tempString.size(); j++){
+      letters[tempString.at(j)-65] += 1;
+    }
+  }
 }
 
 void print_letter_counts(unsigned int letters[]){
-
+  int maxLength = to_string(letters[0]).length();
+  for(int i=0; i < 26; i++){
+    if (maxLength < to_string(letters[i]).length()){
+      maxLength = to_string(letters[i]).length();
+    }
+  }
+  for(int i=0; i < 26; i++){
+    cout << (char)(i+65);
+    cout << setw(maxLength + 1) << letters[i] << "\n";
+  }
 }
 
 void print_max_min_letter(unsigned int letters[]){
-
+  
 }
