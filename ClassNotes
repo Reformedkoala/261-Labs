@@ -1,1 +1,7 @@
-
+Making Node- just make node 
+Add front- make a node for the head, if empty make it the head, if not make a new node-point at the old node-change new node to the head.
+Traverse and Print everything- create a current node(to avoid losing reference), in loop check that it is not null and print currnode value and point it to the next
+Size- Do above and just count
+min/max- same thing iterate through and determine value bigger or smaller
+find- traverse and set a conditional for the value you want and count the values until you get the value
+remove front- create a node to delete pointer and set it to head, set head to next value, delete og pointer
