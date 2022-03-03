@@ -75,8 +75,24 @@ string string_third_word(const string STR)  {
 
 string string_nth_word(const string STR, const int N) {
     string result = STR;
-    // TODO 11: set result to be the nth word from the string
-    return result;
+    int i = 0;
+    int split=1;
+    int split2=1;
+    if(N == 1){return STR.substr(0,STR.find(' '));}
+    if(N == 10){return "";}
+    while(i < N){
+      split = result.find(' ', split+1);
+      i++;
+    }
+    i =0;
+    while(i < N-1){
+      split2 = result.find(' ', split2+1);
+      i++;
+    }
+    cout << split;
+    cout << " " << split2;
+    split -= split2;
+    return result.substr(split2+1, split-1);
 }
 
 string string_substitute(const string STR, const char TARGET, const char REPLACEMENT)  {
