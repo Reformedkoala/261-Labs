@@ -1,3 +1,13 @@
+/* CSCI 261: L3B: String Functions
+ *
+ * Author: Garrett Thompson
+ *
+ * This file contains all of our function definitions and implementations to pass all tests related to the strings library.  Each function must pass a certain number of tests
+ * and be properly implemented.
+ * 
+ */
+
+
 #include "string_functions.h"
 #include <string>
 #include <iostream>
@@ -9,31 +19,37 @@ int string_length(const string STR)  {
 }
 
 char string_char_at(const string STR, const int IDX) {
+    // Set result equal to the string at a certain index
     char result = STR[IDX];
     return result;
 }
 
 string string_append(const string LEFT, const string RIGHT)  {
+    // Set result to the left string concatenated with the right
     string result = LEFT + RIGHT;
     return result;
 }
 
 string string_insert(const string STR, const string TO_INSERT, const int IDX) {
+    // Set result to a substring of the first part then the inserted part then the second part
     string result = STR.substr(0 , IDX) + TO_INSERT + STR.substr(IDX,-1);
     return result;
 }
 
 int string_find(const string STR, const char C)  {
+    // Set result to a certain find in the string 
     int result = STR.find(C);
     return result;
 }
 
 string string_substring(const string STR, const int IDX, const int LEN) {
+    // Set result to a substring of the string from an index to a certain length
     string result = STR.substr(IDX, LEN);
     return result;
 }
 
 string string_replace(const string STR, const string TEXT_TO_REPLACE, const string REPLACE_WITH) {
+    // Set result to replace at certain indices based on parameters
     string str = STR;
     if(str.find(TEXT_TO_REPLACE) == -1){
         return STR;
@@ -43,11 +59,13 @@ string string_replace(const string STR, const string TEXT_TO_REPLACE, const stri
 }
 
 string string_first_word(const string STR)  {
+    // Set result equal to the starting index and the first space
     string result = STR.substr(0, STR.find(' '));
     return result;
 }
 
 string string_remove_first_word(const string STR)  {
+    // Set result equal to the first and second space in a substring
     string str = STR;
     str = str.erase(0, str.find(' '));
     if(str.find(' ')==0){str = str.erase(0,1);}
@@ -56,6 +74,7 @@ string string_remove_first_word(const string STR)  {
 }
 
 string string_second_word(const string STR)  {
+    // Set result equal to the second and third space in the string 
     int first = STR.find(' ');
     int second = STR.find(' ', first + 1);
     string result = STR.substr(first+1, second-first-1);
@@ -65,6 +84,7 @@ string string_second_word(const string STR)  {
 }
 
 string string_third_word(const string STR)  {
+    // Set result equal to the third and fourth space in the string
     int first = STR.find(' ');
     int second = STR.find(' ', first + 1);
     int third = STR.find(' ', second + 1);
@@ -74,6 +94,7 @@ string string_third_word(const string STR)  {
 }
 
 string string_nth_word(const string STR, const int N) {
+    // Set result equal to the nth space and the nth space unless the first or last word
     string result = STR;
     int i = 0;
     int split=1;
@@ -96,6 +117,7 @@ string string_nth_word(const string STR, const int N) {
 }
 
 string string_substitute(const string STR, const char TARGET, const char REPLACEMENT)  {
+    // Remove from the string and replace the part that you took out
     string str = "";
     int i = 0;
     char tempChar;
@@ -111,6 +133,7 @@ string string_substitute(const string STR, const char TARGET, const char REPLACE
 }
 
 string string_to_lower(const string STR) {
+    // Iterate through the string and convert each to a lower character
     string str = "";
     int i = 0;
     int tempChar;
@@ -126,6 +149,7 @@ string string_to_lower(const string STR) {
 }
 
 string string_to_upper(const string STR) {
+    // Iterate through the string and convert each to an upper character
     string str = "";
     int i = 0;
     int tempChar;
@@ -141,6 +165,7 @@ string string_to_upper(const string STR) {
 }
 
 int string_compare(const string LHS, const string RHS) {
+    // Compare the LHS to the RHS
     int result;
     if(LHS == RHS){result = 0;}
     else if(LHS<RHS){result = -1;}

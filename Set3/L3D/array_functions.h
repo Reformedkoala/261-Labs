@@ -1,6 +1,13 @@
 #ifndef ARRAY_FUNCTIONS_H
 #define ARRAY_FUNCTIONS_H
-
+/* CSCI 261: L3D: L3D Header for array functions
+ *
+ * Author: Garrett Thompson
+ * 
+ * This header file gives a detailed description of each function contained within array_functions.cpp and implements the proper prototype for each.  Include is also the Big O
+ * value for each function.
+ * 
+ */
 /**
  * @brief Allocates an integer array of a target size on the free store.
  * Upon function return, pArray will point to starting address.

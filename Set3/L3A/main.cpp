@@ -2,6 +2,7 @@
  *
  * Author: Garrett Thompson
  *
+ * Iterate through the array we take in through user input in order to find the min and max of the values the user inputted.
  * 
  */
 
@@ -17,13 +18,15 @@ using namespace std;
 
 
 int main() {
+  // Initialize all variables
   int i;
   int userIn;
   int userArray[15];
   int size = 15;
   int maximum;
   int minimum;
-  cout << "Enter up to 15 non-zero numbers.  Enter zero to signal the end of data or enter all 15 items:" << endl;
+  cout << "Enter up to 15 non-zero numbers.  Enter zero to signal the end of data or enter all 15 items:" << endl;\
+  // The loop to take in our user's values
   for (i = 0; i < 15; i++){
     cout << "Number " << i+1 << ": ";
     cin >> userIn;
@@ -38,6 +41,7 @@ int main() {
   cout << "The numbers are: ";
   maximum = userArray[0];
   minimum = userArray[0];
+  // The loop to iterate through the array and keep track of the min and max
   for (i = 0; i < size; i++){
     if(maximum < userArray[i]){
       maximum = userArray[i];

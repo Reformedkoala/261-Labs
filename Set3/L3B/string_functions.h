@@ -3,6 +3,14 @@
 
 #include <string>
 using namespace std;
+/* CSCI 261: L3B: String Functions
+ *
+ * Author: Garrett Thompson
+ *
+ * This is the header file to detail each function we implement in the string functions cpp file and allows the user to hover over each function to see the parameters and 
+ * what the function should be doing.
+ * 
+ */
 
 /**
  * @brief Returns the length of a string
