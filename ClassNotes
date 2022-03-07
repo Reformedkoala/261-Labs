@@ -12,3 +12,8 @@ class.object
 UML- attributes(variables) and behaviors(functions)
 Class- Declaration and Definition- declares data methods(functions) and members(variables)
 Scope required for funciton implementation
+
+Constructor function to avoid it not existing- Enforce rules for constructing here as well
+Add parameters to constructor if needed
+Use private section to enforce rules
+Getters and Setters- ways to call private variables without allowing access and to change private variables
