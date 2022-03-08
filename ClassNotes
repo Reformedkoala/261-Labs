@@ -5,3 +5,15 @@ Size- Do above and just count
 min/max- same thing iterate through and determine value bigger or smaller
 find- traverse and set a conditional for the value you want and count the values until you get the value
 remove front- create a node to delete pointer and set it to head, set head to next value, delete og pointer
+
+Class- creates new data type or add functionality to existing types
+Object- variable/instance of defined class
+class.object
+UML- attributes(variables) and behaviors(functions)
+Class- Declaration and Definition- declares data methods(functions) and members(variables)
+Scope required for funciton implementation
+
+Constructor function to avoid it not existing- Enforce rules for constructing here as well
+Add parameters to constructor if needed
+Use private section to enforce rules
+Getters and Setters- ways to call private variables without allowing access and to change private variables
