@@ -17,3 +17,6 @@ Constructor function to avoid it not existing- Enforce rules for constructing he
 Add parameters to constructor if needed
 Use private section to enforce rules
 Getters and Setters- ways to call private variables without allowing access and to change private variables
+
+overload base operators with our class as well
+Destructor, Copy Assignment(Deep), Copy Constructor(Deep) (Rule of 3- make all of them if you make one)
