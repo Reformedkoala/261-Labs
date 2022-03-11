@@ -20,3 +20,6 @@ Getters and Setters- ways to call private variables without allowing access and 
 
 overload base operators with our class as well
 Destructor, Copy Assignment(Deep), Copy Constructor(Deep) (Rule of 3- make all of them if you make one)
+const fuctions- getters and constructors
+Templates- Define type as T within the class we create so we can create objects of any types template<typename T>
+Place templates lower then class definition- .h, .cpp, .hpp (use .hpp for header implementation because you cna't compile on own)(cpp is reserver for standalone compiling)
