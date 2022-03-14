@@ -23,3 +23,20 @@ Destructor, Copy Assignment(Deep), Copy Constructor(Deep) (Rule of 3- make all o
 const fuctions- getters and constructors
 Templates- Define type as T within the class we create so we can create objects of any types template<typename T>
 Place templates lower then class definition- .h, .cpp, .hpp (use .hpp for header implementation because you cna't compile on own)(cpp is reserver for standalone compiling)
+
+Singly-Linked List- what we've been doing- just one link to next node
+Doubly-Linked List- Have a link going forwards and backwards- pNext and pPrev - can go backwards easier - '
+adding to front
+  NN->N=h
+  h->p = nn
+  h=nn
+adding node in middle
+  NN->p = curr
+  NN->N = curr->N
+  curr->N->P = NN
+  Curr->N = NN
+Adding node at end
+  t->N == NN
+  NN->p = t
+  t = NN
+Circularly-Linked List- Tail points to head in single and in double tail points to head and head previous points to tail- Same idea as single and double just one thing changes
