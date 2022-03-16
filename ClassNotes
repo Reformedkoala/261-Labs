@@ -40,3 +40,9 @@ Adding node at end
   NN->p = t
   t = NN
 Circularly-Linked List- Tail points to head in single and in double tail points to head and head previous points to tail- Same idea as single and double just one thing changes
+
+Sorting (purpose of reducing searching complexity) 
+Selection- Iterate over entire list, find smallest value and put at front then next and so on. Start from the position+1 you just swapped. Requires a temp variable to implement.
+Shallow copy with linked list
+Insertion- Iterate over list once, checking where your current value belongs in what you have already sorted.  Check if it is smaller or larger then stuff before. Sort as you go
+Bubble- Bubble defined as a pair of values in the list.  First swap the values as you go and with one pass you would get the largest value sorted.  Repeat for however many elements.  If you make a pass and don't swap anything then everything is in order. Probably easiest.
