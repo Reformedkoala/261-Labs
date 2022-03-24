@@ -1,11 +1,11 @@
 #include "Node.h"
 class LinkedList {
-private:
+  private:
     Node* mpHead;
     Node* mpTail;
     unsigned int mSize;
     Node* makeNodeForValue(int value);
-public:
+  public:
     int Front();
     int Back();
     unsigned int size();
@@ -14,4 +14,4 @@ public:
     int popFront();
     LinkedList();
     ~LinkedList();
-}
+};

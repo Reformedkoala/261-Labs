@@ -4,13 +4,13 @@
 LinkedList::LinkedList(){
     mpHead = nullptr;
     mpTail = nullptr;
-    msize = 0;
+    mSize = 0;
 }
 
 LinkedList::~LinkedList(){
-    Node *temp = head, *next;
+    Node *temp = mpHead, *next;
     while(temp != nullptr){
-        next = temp->next;
+        next = temp->pNext;
         delete temp;
         temp = next;
     }
@@ -20,15 +20,15 @@ LinkedList::~LinkedList(){
     mSize = 0;
 }
 
-Node LinkedList::mMakeNodeForValue(int value){
-  Node *pCurrent;
+Node* LinkedList::makeNodeForValue(int value){
+  Node* pCurrent;
   pCurrent->value = value;
   pCurrent->pNext = nullptr;
   return pCurrent;
 } 
 
 void LinkedList::pushFront(int value){
-  Node *newNode;
+  Node* newNode;
   newNode->value = value;
   newNode->pNext = mpHead;
   mpHead = newNode;
@@ -44,7 +44,7 @@ void LinkedList::pushBack(int value){
 } 
 
 int LinkedList::popFront(){
-  if(mpHead->pNext == nullptr){return -1}
+  if(mpHead->pNext == nullptr){return -1;}
   int value;
   Node *newHead;
   value = mpHead->value;
@@ -55,16 +55,16 @@ int LinkedList::popFront(){
   return value;
 }
 
-int LinkedList::front(){
+int LinkedList::Front(){
     if(mpHead == nullptr){return -1;}
     else{return mpHead->value;}
 }
 
-int LinkedList::back(){
+int LinkedList::Back(){
     if(mpHead == nullptr){return -1;}
     else{return mpTail->value;}
 } 
 
-int LinkedList::size(){
+unsigned int LinkedList::size(){
     return mSize;
 } 
