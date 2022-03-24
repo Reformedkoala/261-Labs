@@ -3,12 +3,12 @@ class LinkedList {
 private:
     Node* mpHead;
     Node* mpTail;
-    unsigned int msize;
+    unsigned int mSize;
     Node* makeNodeForValue(int value);
 public:
     int Front();
     int Back();
-    unsigned int mize();
+    unsigned int size();
     void pushFront(int value);
     void pushBack(int value);
     int popFront();
