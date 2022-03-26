@@ -28,19 +28,28 @@ Node* LinkedList::makeNodeForValue(int value){
 } 
 
 void LinkedList::pushFront(int value){
-  Node* newNode;
+  Node* newNode = new Node;
   newNode->value = value;
-  newNode->pNext = mpHead;
-  mpHead = newNode;
+  if(mpHead == nullptr){
+    newNode->pNext = nullptr;
+    mpTail = newNode;
+    mpHead = newNode;
+  }
+  else{
+    newNode->pNext = mpHead;
+    mpHead = newNode;
+  }
+  mSize+=1;
 }
 
 
 void LinkedList::pushBack(int value){
-  Node *newNode;
+  Node *newNode = new Node;
   newNode->value = value;
   newNode->pNext = nullptr;
   mpTail->pNext = newNode;
   mpTail = newNode;
+  mSize+=1;
 } 
 
 int LinkedList::popFront(){
