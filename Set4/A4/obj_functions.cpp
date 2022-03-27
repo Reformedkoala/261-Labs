@@ -35,6 +35,57 @@ bool open_file(ifstream &inputFile, string filename){
   if (inputFile.fail()) {
     return false;
   }
-  cout << "File successfully opened!" << endl;
+  cout << "File successfully opened!" << endl << endl;
   return true;
+}
+
+void read_file(LinkedList<string>& stringList, LinkedList<float>& floatList, LinkedList<int>& intList, ifstream &inputFile){
+  char tempChar;
+  int tempInt;
+  float tempFloat;
+  string tempString;
+  while(inputFile >> tempChar){
+    if (tempChar == '#'){
+      getline(inputFile, tempString);
+      stringList.pushBack(tempString);
+    }else if(tempChar == 'v'){
+      inputFile >> tempFloat;
+      floatList.pushBack(tempFloat);
+      inputFile >> tempFloat;
+      floatList.pushBack(tempFloat);
+      inputFile >> tempFloat;
+      floatList.pushBack(tempFloat);
+    }else{
+      inputFile >> tempInt;
+      intList.pushBack(tempInt);
+      inputFile >> tempInt;
+      intList.pushBack(tempInt);
+      inputFile >> tempInt;
+      intList.pushBack(tempInt);
+    }
+  }
+  inputFile.close();
+}
+
+void print_read(LinkedList<string>& stringList, LinkedList<float>& floatList, LinkedList<int>& intList){
+  cout << "Read in:" << endl;
+  cout << stringList.size() << " comments" << endl;
+  cout << floatList.size()/3 << " vertices" << endl;
+  cout << intList.size()/3 << " faces" << endl << endl;
+}
+
+void validate_faces(LinkedList<string>& stringList, LinkedList<float>& floatList, LinkedList<int>& intList){
+  int check = 1;
+  cout << "Validating Faces" << endl;
+  for(int i = 0; i < intList.size()/3; i++){
+    if(intList.at(i*3) == intList.at(i*3+1) || intList.at(i*3+1) == intList.at(i*3+2) || intList.at(i*3+2) == intList.at(i*3)){
+      cout << "Face " << i+1 << " has duplicate indices" << endl;
+      check = 0;
+    }
+    if(floatList.at((intList.at(i)-1)*3)){
+      cout << "Face " << i+1 << " contains vertices out of range" << endl;
+      check = 0;
+    }
+  }
+  
 }

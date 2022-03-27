@@ -2,6 +2,7 @@
 #define OBJ_FUNCTIONS_H
 #include <string>
 #include <fstream>
+#include "LinkedList.hpp"
 using namespace std;
 
 /**
@@ -19,5 +20,11 @@ string prompt_user_for_filename();
  * 
  */
 bool open_file(ifstream &inputFile, string filename);
+
+void read_file(LinkedList<string> &stringList, LinkedList<float> &floatList, LinkedList<int> &intList, ifstream &inputfile);
+
+void print_read(LinkedList<string>& stringList, LinkedList<float>& floatList, LinkedList<int>& intList);
+
+void validate_faces(LinkedList<string>& stringList, LinkedList<float>& floatList, LinkedList<int>& intList);
 
 #endif

@@ -1,5 +1,4 @@
 #include "obj_functions.h"
-#include "array_functions.h"
 #include <fstream>
 #include <iostream>
 #include <string>
@@ -26,8 +25,15 @@ int main(int argc, char* argv[]) {
         return -1;
     }
 
-    
+    LinkedList<string> stringList;
+    LinkedList<float> floatList;
+    LinkedList<int> intList; 
+    read_file(stringList, floatList, intList, fileIn);
+    print_read(stringList, floatList, intList);
+    validate_faces(stringList, floatList, intList);
 
-    fileIn.close();
+    stringList.~LinkedList();
+    floatList.~LinkedList();
+    intList.~LinkedList();
     return 0;
 }
