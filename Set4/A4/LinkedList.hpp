@@ -147,7 +147,7 @@ void LinkedList<T>::pushBack(const T VALUE){
 
 template<typename T>
 T LinkedList<T>::popFront(){
-  if(mpHead->pNext == nullptr){return T(-1);}
+  if(mpHead->pNext == nullptr){return T();}
   int value;
   Node<T> *newHead;
   value = mpHead->value;
@@ -160,13 +160,13 @@ T LinkedList<T>::popFront(){
 
 template<typename T>
 T LinkedList<T>::Front() const {
-    if(mpHead == nullptr){return T(-1);}
+    if(mpHead == nullptr){return T();}
     else{return mpHead->value;}
 }
 
 template<typename T>
 T LinkedList<T>::Back() const {
-    if(mpHead == nullptr){return T(-1);}
+    if(mpHead == nullptr){return T();}
     else{return mpTail->value;}
 } 
 
@@ -185,7 +185,7 @@ T LinkedList<T>::at(const int POS) const {
     currentNode = currentNode->pNext;
     counter++;
   }
-  return T(-1);
+  return T();
 }
 
 template<typename T>

@@ -25,6 +25,10 @@ void read_file(LinkedList<string> &stringList, LinkedList<float> &floatList, Lin
 
 void print_read(LinkedList<string>& stringList, LinkedList<float>& floatList, LinkedList<int>& intList);
 
-void validate_faces(LinkedList<string>& stringList, LinkedList<float>& floatList, LinkedList<int>& intList);
+int validate_faces(LinkedList<string>& stringList, LinkedList<float>& floatList, LinkedList<int>& intList);
+
+int get_user_input();
+
+void user_functions(int choice, LinkedList<string>& stringList, LinkedList<float>& floatList, LinkedList<int>& intList);
 
 #endif
