@@ -82,7 +82,7 @@ int validate_faces(LinkedList<string>& stringList, LinkedList<float>& floatList,
       cout << "Face " << i+1 << " has duplicate indices" << endl;
       check = 0;
     }
-    if(floatList.at((intList.at(i*3)-1)*3) && floatList.at((intList.at(i*3)-1)*3+1) && floatList.at((intList.at(i*3)-1)*3+2)){
+    if((intList.at(i*3)*3) > floatList.size() || (intList.at(i*3)*3) < 0 && (intList.at(i*3+1)*3+1) > floatList.size() || (intList.at(i*3+1)*3+1) < 0 && (intList.at(i*3+2)*3+2) > floatList.size() || (intList.at(i*3+2)*3+2) < 0) {
       cout << "Face " << i+1 << " contains vertices out of range" << endl;
       check = 0;
     }
@@ -124,15 +124,15 @@ void user_functions(int choice, LinkedList<string>& stringList, LinkedList<float
       cout << "Comment #" << i+1 << ":" << stringList.at(i) << endl;
     }
   }else if(choice == 2){
-    for(int i = 0; i < intList.size(); i++){
-      cout << "Vertex #" << i+1 << ": (" << floatList.at((intList.at(i)-1)*3) << ", " << floatList.at((intList.at(i)-1)*3+1) << ", " <<  floatList.at((intList.at(i)-1)*3+2) << ")" << endl;
+    for(int i = 0; i < floatList.size()/3; i++){
+      cout << "Vertex #" << i+1 << ": (" << floatList.at(i*3) << ", " << floatList.at(i*3+1) << ", " <<  floatList.at(i*3+2) << ")" << endl;
     }
   }else{
     for(int i = 0; i < intList.size()/3; i++){
       cout << "Face #" << i+1 << ":";
-      for(int i = 0; i < intList.size(); i++){
-      cout << " (" << floatList.at((intList.at(i)-1)*3) << ", " << floatList.at((intList.at(i)-1)*3+1) << ", " <<  floatList.at((intList.at(i)-1)*3+2) << ") ";
-      }
+      cout << " (" << floatList.at(((intList.at(i*3)-1)*3)) << ", " << floatList.at(((intList.at(i*3)-1)*3)+1) << ", " <<  floatList.at(((intList.at(i*3)-1)*3)+2) << ") ";
+      cout << " (" << floatList.at(((intList.at(i*3+1)-1)*3)) << ", " << floatList.at(((intList.at(i*3+1)-1)*3)+1) << ", " <<  floatList.at(((intList.at(i*3+1)-1)*3)+2) << ") ";
+      cout << " (" << floatList.at(((intList.at(i*3+2)-1)*3)) << ", " << floatList.at(((intList.at(i*3+2)-1)*3)+1) << ", " <<  floatList.at(((intList.at(i*3+2)-1)*3)+2) << ") ";
       cout << endl;
     }
   }

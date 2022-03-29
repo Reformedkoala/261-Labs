@@ -38,7 +38,6 @@ int main(int argc, char* argv[]) {
         choice = get_user_input();
     }
     cout << endl << "Goodbye!" << endl;
-
     stringList.~LinkedList();
     floatList.~LinkedList();
     intList.~LinkedList();
