@@ -1,3 +1,10 @@
+/* CSCI 261: L4B: Linked List Operations
+ *
+ * Author: Garrett Thompson
+ *
+ * Implementation of Linked List operations and how they work with integers 
+ *
+ */
 #include "linked_list_functions.h"
 #include <iostream>
 using namespace std;
@@ -11,6 +18,7 @@ Node* linked_list_make_node(const int VALUE) {
 }
 
 int linked_list_get_size(Node* pHead) {
+    // TODO #2
     Node *currentNode = new Node;
     int counter = 0;
     currentNode = pHead;
@@ -22,6 +30,7 @@ int linked_list_get_size(Node* pHead) {
 }
 
 Node* linked_list_add_value_to_front(Node* pHead, const int VALUE) {
+    // TODO #3
     Node* newNode = new Node;
     newNode->value = VALUE;
     newNode->pNext = pHead;
@@ -30,6 +39,7 @@ Node* linked_list_add_value_to_front(Node* pHead, const int VALUE) {
 }
 
 int linked_list_get_value_at_position(Node* pHead, const int POS) {
+    // TODO #4
     Node *currentNode = new Node;
     int counter = 0;
     currentNode = pHead;
@@ -42,6 +52,7 @@ int linked_list_get_value_at_position(Node* pHead, const int POS) {
 }
 
 int linked_list_min(Node* pHead) {
+    // TODO #5
     if (pHead == nullptr){return -1;}
     Node *currentNode = new Node;
     int min = pHead->value;
@@ -54,6 +65,7 @@ int linked_list_min(Node* pHead) {
 }
 
 int linked_list_max(Node* pHead) {
+    // TODO #6
     if (pHead == nullptr){return -1;}
     Node *currentNode = new Node;
     int max = pHead->value;
@@ -66,6 +78,7 @@ int linked_list_max(Node* pHead) {
 }
 
 int linked_list_find(Node* pHead, const int TARGET) {
+    // TODO #7
     Node *currentNode = new Node;
     currentNode = pHead;
     int counter = 0;
@@ -78,6 +91,7 @@ int linked_list_find(Node* pHead, const int TARGET) {
 }
 
 Node* linked_list_remove_node_from_front(Node* pHead) {
+    // TODO #8
     Node *nodeToDelete = new Node;
     if(pHead == nullptr){return pHead;}
     nodeToDelete = pHead;
@@ -87,6 +101,7 @@ Node* linked_list_remove_node_from_front(Node* pHead) {
 }
 
 Node* linked_list_set_value_at_position(Node* pHead, const int POS, const int VALUE) {
+    // TODO #9
     Node *currentNode = new Node;
     currentNode = pHead;
     int counter = 0;
