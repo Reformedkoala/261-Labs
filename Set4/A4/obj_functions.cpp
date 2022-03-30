@@ -1,10 +1,8 @@
-/* CSCI 261 L3D: Array Functions 
+/* CSCI 261: A4: Wavefront OBJ File Format
  *
  * Author: Garrett Thompson
- * 
- * This cpp file implements functions to complete a test set in order to verify each function implementation works properly.  This requires a strong understanding of pointers
- * and arrays in c++ and requires the creator to implement each function properly accounting for all cases.
  *
+ * Reading in a wavefront OBJ File Format and verifying certain properties of the file as well as printing out based on user specification.
  * 
  */
 
@@ -40,10 +38,12 @@ bool open_file(ifstream &inputFile, string filename){
 }
 
 void read_file(LinkedList<string>& stringList, LinkedList<float>& floatList, LinkedList<int>& intList, ifstream &inputFile){
+  // Temp variables to do the reading
   char tempChar;
   int tempInt;
   float tempFloat;
   string tempString;
+  // Loop to read in the file and apply the values to the Linked List objects
   while(inputFile >> tempChar){
     if (tempChar == '#'){
       getline(inputFile, tempString);
@@ -68,6 +68,7 @@ void read_file(LinkedList<string>& stringList, LinkedList<float>& floatList, Lin
 }
 
 void print_read(LinkedList<string>& stringList, LinkedList<float>& floatList, LinkedList<int>& intList){
+  // Printing out the size of the list essentially
   cout << "Read in:" << endl;
   cout << stringList.size() << " comments" << endl;
   cout << floatList.size()/3 << " vertices" << endl;
@@ -77,6 +78,7 @@ void print_read(LinkedList<string>& stringList, LinkedList<float>& floatList, Li
 int validate_faces(LinkedList<string>& stringList, LinkedList<float>& floatList, LinkedList<int>& intList){
   int check = 1;
   cout << "Validating Faces..." << endl;
+  // Validating our file (this is the funky math I'm talking about that I had to do)
   for(int i = 0; i < intList.size()/3; i++){
     if(intList.at(i*3) == intList.at(i*3+1) || intList.at(i*3+1) == intList.at(i*3+2) || intList.at(i*3+2) == intList.at(i*3)){
       cout << "Face " << i+1 << " has duplicate indices" << endl;
@@ -99,6 +101,7 @@ int validate_faces(LinkedList<string>& stringList, LinkedList<float>& floatList,
 
 int get_user_input() {
   int choice;
+  // Allowing the user to choose what they want to do and validates their input
     while(true) {
       cout << "What do you wish to do?" << endl;
       cout << "1) Print comments" << endl;
@@ -119,6 +122,7 @@ int get_user_input() {
 }
 
 void user_functions(int choice, LinkedList<string>& stringList, LinkedList<float>& floatList, LinkedList<int>& intList){
+  // Does all the printing based on what the user chooses
   if(choice == 1){
     for(int i = 0; i < stringList.size(); i++){
       cout << "Comment #" << i+1 << ":" << stringList.at(i) << endl;

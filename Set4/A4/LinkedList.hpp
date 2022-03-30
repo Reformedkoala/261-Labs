@@ -2,25 +2,118 @@
 #include <iostream>
 using namespace std;
 
+/* CSCI 261: A4: Wavefront OBJ File Format
+ *
+ * Author: Garrett Thompson
+ *
+ * Reading in a wavefront OBJ File Format and verifying certain properties of the file as well as printing out based on user specification.
+ * 
+ */
+/**
+ * @brief LinkedList object
+ * 
+ */
 template<typename T>
 class LinkedList {
   private:
+    /**
+     * @brief The head of the linkedlist
+     * 
+     */
     Node<T>* mpHead;
+    /**
+     * @brief The tail of the linkedlist
+     * 
+     */
     Node<T>* mpTail;
+    /**
+     * @brief The size of the linkedlist
+     * 
+     */
     unsigned int mSize;
+    /**
+     * @brief A method to make a node for the linked list
+     * 
+     * @param VALUE what to store in the node you make
+     * 
+     */
     Node<T>* makeNodeForValue(const T VALUE);
   public:
+    /**
+     * @brief A method to print out the entire list for ease of use and debugging
+     * 
+     * @param OTHER The linked list object to print
+     */
     void print(LinkedList& OTHER) const;
+    /**
+     * @brief A method to get the value at a certain position
+     * 
+     * @param POS the position to get the value at
+     */
     T at(const int POS) const;
+    /**
+     * @brief A method to get the front of the linked list or head
+     * 
+     * 
+     */
     T Front() const;
+    /**
+     * @brief A method to get the back of the linked list or tail
+     * 
+     * 
+     */
     T Back() const;
+    /**
+     * @brief A method to get the size of the linked list
+     * 
+     * 
+     */
     unsigned int size() const;
+    /**
+     * @brief A method to push a node to the front of the linked list
+     * 
+     * @param value what to store in the node you make
+     * 
+     */
     void pushFront(const T VALUE);
+    /**
+     * @brief A method to push a node to the back of the linked list
+     * 
+     * @param value what to store in the node you make
+     * 
+     */
     void pushBack(const T VALUE);
+    /**
+     * @brief A method to pop a node from the front of the list and return the value
+     * 
+     * 
+     */
     T popFront();
+    /**
+     * @brief The constructor of the class object
+     * 
+     * 
+     */
     LinkedList();
+    /**
+     * @brief The copy constructor of the class
+     * 
+     * @param OTHER linked list object to copy to a new one
+     * 
+     */
     LinkedList(const LinkedList& OTHER);
+    /**
+     * @brief The copy operator of the class
+     * 
+     * @param OTHER linked list object to copy to a new one
+     * 
+     */
     LinkedList& operator=(const LinkedList& OTHER);
+    /**
+     * @brief The destructor of the class object
+     * 
+     * 
+     */
     ~LinkedList();
 };
 
