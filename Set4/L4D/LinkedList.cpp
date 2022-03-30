@@ -1,12 +1,21 @@
 #include "Node.h"
 #include "LinkedList.h"
+/* CSCI 261: L4D: Construct/Destruct a List
+ *
+ * Author: Garrett Thompson
+ *
+ * Refactoring our linked list class to fit public and private denotions as well as implementing the big three.
+ *
+ */
 
+// Constructor
 LinkedList::LinkedList(){
     mpHead = nullptr;
     mpTail = nullptr;
     mSize = 0;
 }
 
+// Destructor
 LinkedList::~LinkedList(){
     Node *temp = mpHead, *next;
     while(temp != nullptr){
@@ -20,6 +29,7 @@ LinkedList::~LinkedList(){
     mSize = 0;
 }
 
+// makeNodeforValue
 Node* LinkedList::makeNodeForValue(int value){
   Node* pCurrent;
   pCurrent->value = value;
@@ -27,6 +37,7 @@ Node* LinkedList::makeNodeForValue(int value){
   return pCurrent;
 } 
 
+// pushFront Function
 void LinkedList::pushFront(int value){
   Node* newNode = new Node;
   newNode->value = value;
@@ -42,7 +53,7 @@ void LinkedList::pushFront(int value){
   mSize+=1;
 }
 
-
+// pushBack Functions
 void LinkedList::pushBack(int value){
   Node *newNode = new Node;
   newNode->value = value;
@@ -52,6 +63,7 @@ void LinkedList::pushBack(int value){
   mSize+=1;
 } 
 
+// popFront function
 int LinkedList::popFront(){
   if(mpHead->pNext == nullptr){return -1;}
   int value;
@@ -64,16 +76,19 @@ int LinkedList::popFront(){
   return value;
 }
 
+// Front getter
 int LinkedList::Front(){
     if(mpHead == nullptr){return -1;}
     else{return mpHead->value;}
 }
 
+// Back getter
 int LinkedList::Back(){
     if(mpHead == nullptr){return -1;}
     else{return mpTail->value;}
 } 
 
+// Size getter
 unsigned int LinkedList::size(){
     return mSize;
 } 
