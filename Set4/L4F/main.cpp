@@ -1,8 +1,8 @@
-/* CSCI 261: L4A: Lab 4E - A Linked List Class Part III: Test, Copy, Print
+/* CSCI 261: L4A: Lab 4F - A Templated Linked List
  *
  * Author: Garrett Thompson
  *
- * 
+ * Implementation of the Linked List Class but now able to funciton with any data type
  * 
  */
 
@@ -19,6 +19,7 @@ using namespace std;
 #include "Node.hpp"
 
 int main(){
+  // Copy and paste from previous lab but this time with type specification
   LinkedList<int> list1;
   cout << list1.size() << endl;
   list1.pushFront(1);
@@ -51,10 +52,12 @@ int main(){
   list1.~LinkedList<int>();
   list2.~LinkedList<int>();
   list3.~LinkedList<int>();
+  // Trying out the new template on the string data type
   LinkedList<string> list4;
   list4.pushFront("is");
   list4.pushBack("working");
   list4.pushFront("This");
   list4.pushBack("now.");
   list4.print(list4);
+  list4.~LinkedList<string>();
 }
