@@ -2,7 +2,7 @@
  *
  * Author: Garrett Thompson
  *
- * XXXXXXXX (MORE_COMPLETE_DESCRIPTION_HERE)
+ * Testing and implementing the differences between an array and linked-list
  * 
  */
 
@@ -17,13 +17,16 @@
 using namespace std;
 
 int main(){
+  // Initializing a pointer to an array on the free store
   int* pArray;
   pArray = new signed int[3];
   cout << "Please enter three values here" << endl;
+  // Taking in user values
   for(int i = 0; i < 3; i++){
     cout << "Value " << i + 1 << ": ";
     cin >> pArray[i];
   }
+  // Printing out user values
   for(int i = 0; i < 3; i++){
     cout << pArray[i] << " ";
   }
@@ -32,10 +35,12 @@ int main(){
     cout << pArray[i] << " ";
   }
   cout << endl;
+  // Creating a struct for a Node in our linked list
   struct Node {
     int value;
     Node *pNext;
   };
+  // Initializing 3 Nodes as part of our linked list
   Node *pHead = new Node;
   Node *pNext = new Node;
   Node *pTail = new Node;
@@ -45,18 +50,21 @@ int main(){
   cout << "Please enter three values here" << endl;
   Node *currentNode = new Node;
   currentNode->pNext = pHead;
+  // Storing user values in the linked list
   for(int i = 0; i < 3; i++){
     cout << "Value " << i+1 << ": ";
     cin >> currentNode->pNext->value;
     currentNode->pNext = currentNode->pNext->pNext;
   }
   currentNode->pNext = pHead;
+  // Printing out the values in the linked list
   for(int i = 0; i < 3; i++){
     cout << currentNode->pNext->value << " ";
     currentNode->pNext = currentNode->pNext->pNext;
   }
   cout << endl;
   int i = 3;
+  // Printing out the values backwards
   while(i > 0){
     currentNode->pNext = pHead;
     for(int j=0; j<i-1; j++){
@@ -65,7 +73,7 @@ int main(){
     cout << currentNode->pNext->value << " ";
     i--;
   }
-  
+  // Removing the nodes off the free store
   delete pHead;
   delete pNext;
   delete pTail;
