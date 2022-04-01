@@ -46,3 +46,9 @@ Selection- Iterate over entire list, find smallest value and put at front then n
 Shallow copy with linked list
 Insertion- Iterate over list once, checking where your current value belongs in what you have already sorted.  Check if it is smaller or larger then stuff before. Sort as you go
 Bubble- Bubble defined as a pair of values in the list.  First swap the values as you go and with one pass you would get the largest value sorted.  Repeat for however many elements.  If you make a pass and don't swap anything then everything is in order. Probably easiest.
+
+Lineear(unorder search) Binary(ordered search)
+Binary-  computer and examine middle, if equal: return, if greater: search top half. if less: search bottom half. 
+if task is A() TASK() B() use recursion, if A() TASK() use iteration
+general rule of thumb, iteration can normally replace recursion but with extra work
+Throw binary in a loop instead
