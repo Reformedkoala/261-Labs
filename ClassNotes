@@ -52,3 +52,6 @@ Binary-  computer and examine middle, if equal: return, if greater: search top h
 if task is A() TASK() B() use recursion, if A() TASK() use iteration
 general rule of thumb, iteration can normally replace recursion but with extra work
 Throw binary in a loop instead
+
+BFS- Search all neighbors first then search all neighbors neighbors and so on - queue - graph algorithms
+DFS- Search one direction then backtrach then different direction and so forth - stack - graph algorithms
