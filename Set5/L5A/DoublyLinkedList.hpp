@@ -232,7 +232,6 @@ template<typename T>
 void DoublyLinkedList<T>::remove(const int POS){
   DoublyNode<T> *newNode = new DoublyNode<T>;
   DoublyNode<T> *currentNode = new DoublyNode<T>;
-  DoublyNode<T> *prevNode = new DoublyNode<T>;
   if(POS < 0){
     newNode = mpHead->pNext;
     newNode->pPrev = nullptr;
@@ -246,13 +245,12 @@ void DoublyLinkedList<T>::remove(const int POS){
   } else {
     int counter = 0;
     currentNode = mpHead;
-    while(counter != POS+1){
+    while(counter != POS){
       currentNode = currentNode->pNext;
       counter++; 
     }
-    prevNode->pNext = currentNode->pNext;
-    currentNode->pNext->pPrev = prevNode;
-    delete currentNode;
+    newNode = currentNode->pPrev;
+    newNode->pNext = currentNode->pNext;
   }
   mSize--;
 }
