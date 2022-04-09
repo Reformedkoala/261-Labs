@@ -117,7 +117,6 @@ class LinkedList {
     ~LinkedList();
     LinkedList<T> split_left(LinkedList<T> &pList);
     LinkedList<T> split_right(LinkedList<T> &pList);
-    LinkedList<T> merge(LinkedList<T> &pLeft, LinkedList<T> &pRight);
     void merge_sort(LinkedList<T> &pList);
 };
 
@@ -244,13 +243,14 @@ void LinkedList<T>::pushBack(const T VALUE){
 
 template<typename T>
 T LinkedList<T>::popFront(){
-  if(mpHead->pNext == nullptr){delete mpHead; mSize -= 1;return mpHead->value;}
-  int value;
-  Node<T> *newHead;
-  value = mpHead->value;
-  newHead = mpHead->pNext;
-  delete mpHead;
-  mpHead = newHead;
+  if(mSize <=0){
+    return -1;
+  }
+  T value = mpHead->value;
+  Node<T> *delHead = new Node<T>;
+  delHead = mpHead;
+  mpHead = mpHead->pNext;
+  delete delHead;
   mSize -= 1;
   return value;
 }
@@ -300,8 +300,9 @@ void LinkedList<T>::print(LinkedList& OTHER) const {
 template<typename T>
 LinkedList<T> LinkedList<T>::split_left(LinkedList<T> &pList){
   LinkedList<T> pLeft;
-  for(int i=0; i < pList.size(); i++){
-    if(i < pList.size()/2){pLeft.pushBack(pList.at(i));}    
+  T n = pList.size();
+  for(int i=0; i < n; i++){
+    if(i < n/2){pLeft.pushBack(pList.popFront());}
   }
   return pLeft;
 } 
@@ -310,16 +311,25 @@ LinkedList<T> LinkedList<T>::split_left(LinkedList<T> &pList){
 template<typename T>
 LinkedList<T> LinkedList<T>::split_right(LinkedList<T> &pList){
   LinkedList<T> pRight;
-  for(int i=0; i < pList.size(); i++){
-    if(i >= pList.size()/2){pRight.pushBack(pList.at(i));}    
+  T n = pList.size();
+  for(int i=0; i < n; i++){
+    pRight.pushBack(pList.popFront());
   }
   return pRight;
 } 
 
 
 template<typename T>
-LinkedList<T> LinkedList<T>::merge(LinkedList<T> &pLeft, LinkedList<T> &pRight){
-  LinkedList<T> pList;
+void LinkedList<T>::merge_sort(LinkedList<T> &pList){
+  // base case
+  if(pList.size() <= 1) {return;} // already sorted
+  // divide & split
+  LinkedList<T> pLeft = pList.split_left(pList);
+  LinkedList<T> pRight = pList.split_right(pList);
+  // recurse
+  pLeft.merge_sort(pLeft);
+  pRight.merge_sort(pRight);
+  // conquer & merge
   while(pLeft.size() != 0 && pRight.size() != 0){
     if(pLeft.Front() < pRight.Front()){
       pList.pushBack(pLeft.popFront());
@@ -330,19 +340,4 @@ LinkedList<T> LinkedList<T>::merge(LinkedList<T> &pLeft, LinkedList<T> &pRight){
   }
   while(pLeft.size()!=0){pList.pushBack(pLeft.popFront());}
   while(pRight.size()!=0){pList.pushBack(pRight.popFront());}
-  return pList;
-}
-
-
-template<typename T>
-void LinkedList<T>::merge_sort(LinkedList<T> &pList){
-  // base case
-  if(pList.size() <= 1) {return;} // already sorted
-  // divide & split
-  LinkedList<T> pLeft = pList.split_left(pList), pRight = pList.split_right(pList);
-  // recurse
-  pLeft.merge_sort(pLeft);
-  pRight.merge_sort(pRight);
-  // conquer & merge
-  pList = pList.merge(pLeft, pRight);
 }
