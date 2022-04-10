@@ -117,7 +117,8 @@ class LinkedList {
     ~LinkedList();
     LinkedList<T> split_left(LinkedList<T> &pList);
     LinkedList<T> split_right(LinkedList<T> &pList);
-    void merge_sort(LinkedList<T> &pList, const int WAY);
+    void merge_sort(LinkedList<T> &pList);
+    int search(const LinkedList<T> &PLIST, const int SEARCH) const;
 };
 
 template<typename T>
@@ -320,17 +321,16 @@ LinkedList<T> LinkedList<T>::split_right(LinkedList<T> &pList){
 
 
 template<typename T>
-void LinkedList<T>::merge_sort(LinkedList<T> &pList, const int WAY){
+void LinkedList<T>::merge_sort(LinkedList<T> &pList){
   // base case
   if(pList.size() <= 1) {return;} // already sorted
   // divide & split
   LinkedList<T> pLeft = pList.split_left(pList);
   LinkedList<T> pRight = pList.split_right(pList);
   // recurse
-  pLeft.merge_sort(pLeft, WAY);
-  pRight.merge_sort(pRight, WAY);
+  pLeft.merge_sort(pLeft);
+  pRight.merge_sort(pRight);
   // conquer & merge
-  if(WAY == 1){
   while(pLeft.size() != 0 && pRight.size() != 0){
     if(pLeft.Front() < pRight.Front()){
       pList.pushBack(pLeft.popFront());
@@ -338,20 +338,32 @@ void LinkedList<T>::merge_sort(LinkedList<T> &pList, const int WAY){
     else{ 
       pList.pushBack(pRight.popFront());
       }
-  }
+    }
   while(pLeft.size()!=0){pList.pushBack(pLeft.popFront());}
   while(pRight.size()!=0){pList.pushBack(pRight.popFront());}
   }
-  else{
-    while(pLeft.size() != 0 && pRight.size() != 0){
-      if(pLeft.Front() > pRight.Front()){
-        pList.pushBack(pLeft.popFront());
-        }
-      else{ 
-        pList.pushBack(pRight.popFront());
-        }
+
+
+template<typename T>
+int LinkedList<T>::search(const LinkedList<T> &PLIST, const int SEARCH) const {
+  int startPos = 0, endPos = PLIST.size() - 1;
+  int targetPos = -1;
+  int middlePos = (endPos-startPos)/2 + startPos;
+  if(PLIST.at(endPos) == SEARCH){return endPos;}
+  if(PLIST.at(startPos) == SEARCH){return startPos;}
+  while( endPos > startPos ) {
+    if(endPos < startPos){return targetPos;}
+    if(PLIST.at(middlePos) == SEARCH){
+      return middlePos;
     }
-    while(pLeft.size()!=0){pList.pushBack(pLeft.popFront());}
-    while(pRight.size()!=0){pList.pushBack(pRight.popFront());}
+    if(PLIST.at(middlePos) > SEARCH){
+      endPos = middlePos;
+      middlePos = (endPos - startPos)/2 + startPos;
     }
+    if(PLIST.at(middlePos) < SEARCH){
+      startPos = middlePos;
+      middlePos = (endPos-startPos)/2 + startPos;
+    }
+  }
+  return targetPos;
 }
