@@ -36,7 +36,7 @@ int Player::getChips(){
 
 void Player::giveChip(Player targetPlayer){
   targetPlayer.mChipNum +=1;
-  this->mChipNum -=1;
+  mChipNum -=1;
 }
 
 void Player::giveCenter(){
