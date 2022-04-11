@@ -73,8 +73,6 @@ template<typename T>
 DoublyLinkedList<T>::DoublyLinkedList(){
     mpHead = nullptr;
     mpTail = nullptr;
-    mpHead->pPrev = mpTail;
-    mpTail->pNext = mpHead;
     mSize = 0;
 }
 
@@ -167,6 +165,7 @@ T DoublyLinkedList<T>::get(const int POS) const {
   DoublyNode<T> *currentNode = new DoublyNode<T>;
   currentNode = mpHead;
   int counter = 0;
+  if(POS < 0){return T(-1);}
   while(currentNode != nullptr){
     if(counter == POS){return currentNode->value;}
     currentNode = currentNode->pNext;
@@ -209,10 +208,18 @@ void DoublyLinkedList<T>::insert(const int POS, const T VAL){
       mpHead = newNode;
     }
   } else if(POS > mSize){
-    newNode->pPrev = mpTail;
-    newNode->pNext = nullptr;
-    mpTail->pNext = newNode;
-    mpTail = newNode;
+    if(mpHead == nullptr){
+      newNode->pNext = nullptr;
+      newNode->pPrev = nullptr;
+      mpTail = newNode;
+      mpHead = newNode;
+    }else{
+      newNode->pPrev = mpTail;
+      newNode->pNext = mpHead;
+      mpHead->pPrev = newNode;
+      mpTail->pNext = newNode;
+      mpTail = newNode;
+    }
   } else {
     int counter = 0;
     currentNode = mpHead;
@@ -241,7 +248,7 @@ void DoublyLinkedList<T>::remove(const int POS){
     mpHead = newNode;
   } else if(POS > mSize){
     newNode = mpTail->pPrev;
-    newNode->pNext = nullptr;
+    newNode->pNext = mpHead;
     delete mpTail;
     mpTail = newNode;
   } else {

@@ -7,7 +7,7 @@ class Player {
     Player(int playerVal);
     int getPlayer();
     int getChips();
-    void giveChip(Player& targetPlayer);
+    void giveChip(Player targetPlayer);
     void giveCenter();
 
   private:
@@ -34,11 +34,11 @@ int Player::getChips(){
     return mChipNum;
 }
 
-void Player::giveChip(Player& targetPlayer){
+void Player::giveChip(Player targetPlayer){
   targetPlayer.mChipNum +=1;
   this->mChipNum -=1;
 }
 
 void Player::giveCenter(){
-  this->mChipNum -=1;
+  mChipNum -=1;
 }

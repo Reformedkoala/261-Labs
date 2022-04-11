@@ -15,10 +15,16 @@ using namespace std;
 
 int main() {
   int userIn;
+  int turnCount = 0;
   cout << "How many players are playing: ";
   cin >> userIn;
   Game mainGame(userIn);
-  
+  srand(time(0));
+  rand();
+  while(mainGame.endCheck()){
+    mainGame.gameTurn();
+    turnCount += 1;
+  }
   return 0;
 
 }
