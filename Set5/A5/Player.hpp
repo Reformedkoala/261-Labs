@@ -7,9 +7,10 @@ class Player {
     Player(int playerVal);
     int getPlayer();
     int getChips();
-    void giveChip(Player targetPlayer);
     void giveCenter();
-
+    void subtractOne();
+    void addOne();
+    Player& operator=(const Player& OTHER);
   private:
     int mPlayerNum;
     int mChipNum;
@@ -34,11 +35,22 @@ int Player::getChips(){
     return mChipNum;
 }
 
-void Player::giveChip(Player targetPlayer){
-  targetPlayer.mChipNum +=1;
-  mChipNum -=1;
-}
 
 void Player::giveCenter(){
   mChipNum -=1;
+}
+
+void Player::subtractOne(){
+  mChipNum -=1;
+}
+
+void Player::addOne(){
+  mChipNum +=1;
+}
+
+
+Player& Player::operator=(const Player& OTHER){
+  this->mChipNum = OTHER.mChipNum;
+  this->mPlayerNum = OTHER.mPlayerNum;
+  return *this;
 }

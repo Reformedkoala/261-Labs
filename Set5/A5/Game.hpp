@@ -82,22 +82,27 @@ void Game::gameTurn(){
         cout << "Rolled a " << x << " - keep!" << endl;
     } else if(x == 3){
       if(mCurrPlayer == 1){
-        currPlayers.get(mCurrPlayer-1).giveChip(currPlayers.get(mGameSize-1));
-        cout << "Rolled a " << x << " - give left - Player #"<< mCurrPlayer << " has " << currPlayers.get(mCurrPlayer-1).getChips() << "chips - Player #"<< mGameSize << " has "<< currPlayers.get(mGameSize-1).getChips() << " chips" << endl;
+        currPlayers.get(mCurrPlayer-1).subtractOne();
+        currPlayers.get(mGameSize-1).addOne();
+        cout << "Rolled a " << x << " - give left - Player #"<< mCurrPlayer << " has " << currPlayers.get(mCurrPlayer-1).getChips() << " chips - Player #"<< mGameSize << " has "<< currPlayers.get(mGameSize-1).getChips() << " chips" << endl;
       }else{
-        currPlayers.get(mCurrPlayer-1).giveChip(currPlayers.get(mCurrPlayer-2));
-        cout << "Rolled a " << x << " - give left - Player #"<< mCurrPlayer << " has " << currPlayers.get(mCurrPlayer-1).getChips() << "chips - Player #"<< mCurrPlayer-1 << " has "<< currPlayers.get(mCurrPlayer-2).getChips() << " chips" << endl;
+        currPlayers.get(mCurrPlayer-1).subtractOne();
+        currPlayers.get(mCurrPlayer-2).addOne();
+        cout << "Rolled a " << x << " - give left - Player #"<< mCurrPlayer << " has " << currPlayers.get(mCurrPlayer-1).getChips() << " chips - Player #"<< mCurrPlayer-1 << " has "<< currPlayers.get(mCurrPlayer-2).getChips() << " chips" << endl;
       }
     } else if(x == 4){
       if(mCurrPlayer == 5){
-        currPlayers.get(mCurrPlayer-1).giveChip(currPlayers.get(0));
-        cout << "Rolled a " << x << " - give right - Player #"<< mCurrPlayer << " has " << currPlayers.get(mCurrPlayer-1).getChips() << "chips - Player #1" << " has "<< currPlayers.get(0).getChips() << " chips" << endl;
+        currPlayers.get(mCurrPlayer-1).subtractOne();
+        currPlayers.get(0).addOne();
+        cout << "Rolled a " << x << " - give right - Player #"<< mCurrPlayer << " has " << currPlayers.get(mCurrPlayer-1).getChips() << " chips - Player #1" << " has "<< currPlayers.get(0).getChips() << " chips" << endl;
       }else{
-        currPlayers.get(mCurrPlayer-1).giveChip(currPlayers.get(mCurrPlayer));
-        cout << "Rolled a " << x << " - give right - Player #"<< mCurrPlayer << " has " << currPlayers.get(mCurrPlayer-1).getChips() << "chips - Player #"<< mCurrPlayer+1 << " has "<< currPlayers.get(mCurrPlayer).getChips() << " chips" << endl;
+        currPlayers.get(mCurrPlayer-1).subtractOne();
+        currPlayers.get(mCurrPlayer).addOne();
+        cout << "Rolled a " << x << " - give right - Player #"<< mCurrPlayer << " has " << currPlayers.get(mCurrPlayer-1).getChips() << " chips - Player #"<< mCurrPlayer+1 << " has "<< currPlayers.get(mCurrPlayer).getChips() << " chips" << endl;
       }
     } else if(x == 5){
       currPlayers.get(mCurrPlayer-1).giveCenter();
+      mCenterChips += 1;
       cout << "Rolled a " << x << " - give center - Player #"<< mCurrPlayer << " has " << currPlayers.get(mCurrPlayer-1).getChips() << " - Center has " << mCenterChips << " chips" << endl;
     } else if(x == 6){
       cout << "Rolled a " << x << " - reverse!" << endl;
@@ -108,7 +113,7 @@ void Game::gameTurn(){
       }
     } else{
         playerSkip += 1;
-        cout << "Rolled a " << x << " - skip! skipping" << playerSkip << "players" << endl;
+        cout << "Rolled a " << x << " - skip! skipping " << playerSkip << " players" << endl;
     }
   }
   if(mDirection == 1){
@@ -121,6 +126,7 @@ void Game::gameTurn(){
     } else{
       mCurrPlayer += playerSkip;
       mCurrPlayer -= mGameSize;
+      mCurrPlayer += 1;
     }
   } else{
     if(playerSkip == 0 && mCurrPlayer >= 1 ){
@@ -132,6 +138,7 @@ void Game::gameTurn(){
     } else{
       mCurrPlayer -= playerSkip;
       mCurrPlayer += mGameSize;
+      mCurrPlayer -= 1;
     }
   }
 }

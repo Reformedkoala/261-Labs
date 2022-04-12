@@ -63,7 +63,7 @@ class DoublyLinkedList {
      * 
      */
     ~DoublyLinkedList();
-    T get(const int POS) const;
+    T get(const int POS);
     void set(const int POS, const T VAL);
     void insert(const int POS, const T VAL);
     void remove(const int POS);
@@ -161,13 +161,13 @@ DoublyLinkedList<T>::~DoublyLinkedList(){
 
 
 template<typename T>
-T DoublyLinkedList<T>::get(const int POS) const {
+T DoublyLinkedList<T>::get(const int POS) {
   DoublyNode<T> *currentNode = new DoublyNode<T>;
   currentNode = mpHead;
   int counter = 0;
   if(POS < 0){return T(-1);}
   while(currentNode != nullptr){
-    if(counter == POS){return currentNode->value;}
+    if(counter == POS){return T(currentNode->value);}
     currentNode = currentNode->pNext;
     counter++;
   }
