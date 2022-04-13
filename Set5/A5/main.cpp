@@ -25,6 +25,9 @@ int main() {
     mainGame.gameTurn();
     turnCount += 1;
   }
+  mainGame.playerWin();
+  cout << " " << turnCount << " turns" << endl;
+  mainGame.~Game();
   return 0;
 
 }

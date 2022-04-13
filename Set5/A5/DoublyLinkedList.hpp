@@ -148,7 +148,7 @@ DoublyLinkedList<T>& DoublyLinkedList<T>::operator=(const DoublyLinkedList& OTHE
 template<typename T>
 DoublyLinkedList<T>::~DoublyLinkedList(){
     DoublyNode<T> *temp = mpHead, *next;
-    while(temp != nullptr){
+    while(temp != mpTail){
         next = temp->pNext;
         delete temp;
         temp = next;
@@ -180,7 +180,7 @@ void DoublyLinkedList<T>::set(const int POS, const T VAL){
   DoublyNode<T> *currentNode = new DoublyNode<T>;
   currentNode = mpHead;
   int counter = 0;
-  while(currentNode != nullptr){
+  while(counter < mSize){
     if(counter == POS){currentNode->value = VAL;}
     currentNode = currentNode->pNext;
     counter++;

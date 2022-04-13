@@ -7,18 +7,14 @@ class Player {
     Player(int playerVal);
     int getPlayer();
     int getChips();
-    void giveCenter();
-    void subtractOne();
-    void addOne();
     Player& operator=(const Player& OTHER);
-  private:
     int mPlayerNum;
     int mChipNum;
 };
 
 Player::Player(){
     mPlayerNum = 0;
-    mChipNum = 3;
+    mChipNum = 0;
 }
 
 
@@ -33,19 +29,6 @@ int Player::getPlayer(){
 
 int Player::getChips(){
     return mChipNum;
-}
-
-
-void Player::giveCenter(){
-  mChipNum -=1;
-}
-
-void Player::subtractOne(){
-  this->mChipNum -=1;
-}
-
-void Player::addOne(){
-  this->mChipNum +=1;
 }
 
 
