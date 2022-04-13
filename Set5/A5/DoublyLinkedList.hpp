@@ -1,13 +1,16 @@
+/* CSCI 261: Assignment 5: A5 - Wild Left-Center-Right Simulation
+ *
+ * Author: Garrett Thompson
+ * 
+ * Circular Doubly Linked List Implementation despite the name it is circular I just didn't want to rename everything in the entire hpp file
+ * 
+ *
+ */
+
 #include "DoublyNode.hpp"
 #include <iostream>
 using namespace std;
-/* CSCI 261: L4A: Lab 4F - A Templated Linked List
- *
- * Author: Garrett Thompson
- *
- * Implementation of the Linked List Class but now able to funciton with any data type
- * 
- */
+
 /**
  * @brief DoublyLinkedList object
  * 
@@ -63,9 +66,35 @@ class DoublyLinkedList {
      * 
      */
     ~DoublyLinkedList();
+    /**
+     * @brief Returns the value at the given position
+     * 
+     * @param POS determines what position to get the value at
+     * 
+     */
     T get(const int POS);
+    /**
+     * @brief Set's the value at the given position
+     * 
+     * @param POS determines what position to get the value at
+     * @param VAL determines the value we set at the position
+     * 
+     */
     void set(const int POS, const T VAL);
+    /**
+     * @brief Inserts the value at the specified position
+     * 
+     * @param POS determines what position to get the value at
+     * @param VAL determines the value we set at the position
+     * 
+     */
     void insert(const int POS, const T VAL);
+    /**
+     * @brief Removes the value at the specified position
+     * 
+     * @param POS determines what position to get the value at
+     * 
+     */
     void remove(const int POS);
 };
 

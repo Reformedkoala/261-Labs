@@ -1,11 +1,12 @@
 #ifndef DOUBLYNODE_H
 #define DOUBLYNODE_H
-/* CSCI 261: L4A: Lab 4F - A Templated Linked List
+/* CSCI 261: Assignment 5: A5 - Wild Left-Center-Right Simulation
  *
  * Author: Garrett Thompson
- *
- * Implementation of the Linked List Class but now able to funciton with any data type
  * 
+ *  Doubly Node implementation not really any different then any other node
+ * 
+ *
  */
 
 /**
@@ -24,6 +25,10 @@ struct DoublyNode {
      * 
      */
     DoublyNode<T> *pNext;
+    /**
+     * @brief pointer to the previous element of the linked list
+     * 
+     */
     DoublyNode<T> *pPrev;
 };
 
