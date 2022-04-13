@@ -1,10 +1,10 @@
 #ifndef NODE_H
 #define NODE_H
-/* CSCI 261: A4: Wavefront OBJ File Format
+/* CSCI 261: Lab 5F - A Needle in the Haystack
  *
  * Author: Garrett Thompson
  *
- * Reading in a wavefront OBJ File Format and verifying certain properties of the file as well as printing out based on user specification.
+ * LinkedList file for Lab 5F in which we assign random values to a linked list, sort it, then perform a binary search based on user specified values
  * 
  */
 /**

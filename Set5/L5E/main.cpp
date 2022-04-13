@@ -6,11 +6,11 @@
 #include "LinkedList.hpp"
 #include "Rectangle.hpp"
 using namespace std;
-/* CSCI 261: A4: Wavefront OBJ File Format
+/* CSCI 261: Lab 5E - Procedural and Object-Oriented
  *
  * Author: Garrett Thompson
  *
- * Reading in a wavefront OBJ File Format and verifying certain properties of the file as well as printing out based on user specification.
+ * Main file for Lab 5E in which we add rectangles to our linked list and sort them based on specified overloaded comparators in order to make our sort function object oriented
  * 
  */
 

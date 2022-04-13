@@ -2,11 +2,11 @@
 #include <iostream>
 using namespace std;
 
-/* CSCI 261: A4: Wavefront OBJ File Format
+/* CSCI 261: L5D: Sorting II & Recursion II: Merge Sort via the Call Stack
  *
  * Author: Garrett Thompson
  *
- * Reading in a wavefront OBJ File Format and verifying certain properties of the file as well as printing out based on user specification.
+ * LinkedList implementation
  * 
  */
 /**
@@ -115,8 +115,26 @@ class LinkedList {
      * 
      */
     ~LinkedList();
+    /**
+     * @brief Splits the given list on the left
+     * 
+     * @param pList Linked List object passed to the function to split
+     * 
+     */
     LinkedList<T> split_left(LinkedList<T> &pList);
+    /**
+     * @brief Splits the given list on the right
+     * 
+     * @param pList Linked List object passed to the function to split
+     * 
+     */
     LinkedList<T> split_right(LinkedList<T> &pList);
+    /**
+     * @brief Performed the merge sort recursion 
+     * 
+     * @param pList Linked List object passed to the function to sort recursively
+     * 
+     */
     void merge_sort(LinkedList<T> &pList);
 };
 
@@ -323,7 +341,7 @@ template<typename T>
 void LinkedList<T>::merge_sort(LinkedList<T> &pList){
   // base case
   if(pList.size() <= 1) {return;} // already sorted
-  // divide & split
+  // divide & split - I abstracted the splitting out of the recursive function a bit
   LinkedList<T> pLeft = pList.split_left(pList);
   LinkedList<T> pRight = pList.split_right(pList);
   // recurse

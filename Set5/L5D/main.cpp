@@ -1,19 +1,19 @@
-#include <fstream>
 #include <iostream>
-#include <string>
 #include "LinkedList.hpp"
 using namespace std;
-/* CSCI 261: A4: Wavefront OBJ File Format
+/* CSCI 261: L5D: Sorting II & Recursion II: Merge Sort via the Call Stack
  *
  * Author: Garrett Thompson
  *
- * Reading in a wavefront OBJ File Format and verifying certain properties of the file as well as printing out based on user specification.
+ * Performing the recursive merge sort on a list of integers
  * 
  */
 
 int main() {
+  // Initializing the list
   LinkedList<int> list1;
   // 4 3 8 1 5 9 7 2 6
+  // Pushing the values into the list
   list1.pushBack(4);
   list1.pushBack(3);
   list1.pushBack(8);
@@ -23,9 +23,13 @@ int main() {
   list1.pushBack(7);
   list1.pushBack(2);
   list1.pushBack(6);
+  // Printing the original list out
   list1.print(list1);
+  // Sorting the list
   list1.merge_sort(list1);
+  // Printing the list
   list1.print(list1);
+  // Deconstructing the list
   list1.~LinkedList();
   return 0;
 }

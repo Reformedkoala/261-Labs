@@ -2,13 +2,14 @@
 #include <iostream>
 using namespace std;
 
-/* CSCI 261: A4: Wavefront OBJ File Format
+/* CSCI 261: Lab 5F - A Needle in the Haystack
  *
  * Author: Garrett Thompson
  *
- * Reading in a wavefront OBJ File Format and verifying certain properties of the file as well as printing out based on user specification.
+ * LinkedList file for Lab 5F in which we assign random values to a linked list, sort it, then perform a binary search based on user specified values
  * 
  */
+
 /**
  * @brief LinkedList object
  * 
@@ -115,9 +116,35 @@ class LinkedList {
      * 
      */
     ~LinkedList();
+    /**
+     * @brief Splits the given list on the left
+     * 
+     * @param pList Linked List object passed to the function to split
+     * 
+     */
     LinkedList<T> split_left(LinkedList<T> &pList);
+    /**
+     * @brief Splits the given list on the right
+     * 
+     * @param pList Linked List object passed to the function to split
+     * 
+     */
     LinkedList<T> split_right(LinkedList<T> &pList);
+    /**
+     * @brief Performed the merge sort recursion 
+     * 
+     * @param pList Linked List object passed to the function to sort recursively
+     * 
+     */
     void merge_sort(LinkedList<T> &pList);
+    /**
+     * @brief Performed the binary search  
+     * 
+     * @param pList Linked List object passed to the function to search through
+     * 
+     * @param SEARCH Value to search for in the list
+     * 
+     */
     int search(const LinkedList<T> &PLIST, const int SEARCH) const;
 };
 
@@ -346,13 +373,18 @@ void LinkedList<T>::merge_sort(LinkedList<T> &pList){
 
 template<typename T>
 int LinkedList<T>::search(const LinkedList<T> &PLIST, const int SEARCH) const {
+  // Initializing the first values to start with at the beginning middle and end of the list
   int startPos = 0, endPos = PLIST.size() - 1;
   int targetPos = -1;
   int middlePos = (endPos-startPos)/2 + startPos;
+  // Checking if values are at end or beginning before start
   if(PLIST.at(endPos) == SEARCH){return endPos;}
   if(PLIST.at(startPos) == SEARCH){return startPos;}
+  // Looping through the entire list unless we don't find it
   while( endPos > startPos ) {
+    // Returning target posiiton if we don't find it which will be -1
     if(endPos < startPos){return targetPos;}
+    // Returning middle position because that is the found value
     if(PLIST.at(middlePos) == SEARCH){
       return middlePos;
     }

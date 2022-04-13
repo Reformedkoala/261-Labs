@@ -1,10 +1,10 @@
 #ifndef NODE_H
 #define NODE_H
-/* CSCI 261: A4: Wavefront OBJ File Format
+/* CSCI 261: L5D: Sorting II & Recursion II: Merge Sort via the Call Stack
  *
  * Author: Garrett Thompson
  *
- * Reading in a wavefront OBJ File Format and verifying certain properties of the file as well as printing out based on user specification.
+ * Node for the linked list
  * 
  */
 /**

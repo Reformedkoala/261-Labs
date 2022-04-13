@@ -2,11 +2,11 @@
 #include <iostream>
 using namespace std;
 
-/* CSCI 261: A4: Wavefront OBJ File Format
+/* CSCI 261: Lab 5E - Procedural and Object-Oriented
  *
  * Author: Garrett Thompson
  *
- * Reading in a wavefront OBJ File Format and verifying certain properties of the file as well as printing out based on user specification.
+ * Class implementation of the singular linked list in order to act as a container for our objects we create
  * 
  */
 /**
@@ -115,8 +115,26 @@ class LinkedList {
      * 
      */
     ~LinkedList();
+    /**
+     * @brief Splits the given list on the left
+     * 
+     * @param pList Linked List object passed to the function to split
+     * 
+     */
     LinkedList<T> split_left(LinkedList<T> &pList);
+    /**
+     * @brief Splits the given list on the right
+     * 
+     * @param pList Linked List object passed to the function to split
+     * 
+     */
     LinkedList<T> split_right(LinkedList<T> &pList);
+    /**
+     * @brief Performed the merge sort recursion 
+     * 
+     * @param pList Linked List object passed to the function to sort recursively
+     * 
+     */
     void merge_sort(LinkedList<T> &pList, const int WAY);
 };
 

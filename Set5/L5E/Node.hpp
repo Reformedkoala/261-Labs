@@ -1,10 +1,10 @@
 #ifndef NODE_H
 #define NODE_H
-/* CSCI 261: A4: Wavefront OBJ File Format
+/* CSCI 261: Lab 5E - Procedural and Object-Oriented
  *
  * Author: Garrett Thompson
  *
- * Reading in a wavefront OBJ File Format and verifying certain properties of the file as well as printing out based on user specification.
+ * Node hpp file for the node class
  * 
  */
 /**

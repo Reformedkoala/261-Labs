@@ -24,6 +24,10 @@ struct DoublyNode {
      * 
      */
     DoublyNode<T> *pNext;
+    /**
+     * @brief pointer to the previous element of the linked list
+     * 
+     */
     DoublyNode<T> *pPrev;
 };
 

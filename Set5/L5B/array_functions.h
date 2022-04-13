@@ -1,6 +1,6 @@
 #ifndef ARRAY_FUNCTIONS_H
 #define ARRAY_FUNCTIONS_H
-/* CSCI 261: L3D: L3D Header for array functions
+/* CSCI 261: L5B: L5B Header for array functions
  *
  * Author: Garrett Thompson
  * 

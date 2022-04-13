@@ -63,16 +63,53 @@ class DoublyLinkedList {
      * 
      */
     ~DoublyLinkedList();
+    /**
+     * @brief Returns the value at the given position
+     * 
+     * @param POS determines what position to get the value at
+     * 
+     */
     T get(const int POS) const;
+    /**
+     * @brief Set's the value at the given position
+     * 
+     * @param POS determines what position to get the value at
+     * @param VAL determines the value we set at the position
+     * 
+     */
     void set(const int POS, const T VAL);
+    /**
+     * @brief Inserts the value at the specified position
+     * 
+     * @param POS determines what position to get the value at
+     * @param VAL determines the value we set at the position
+     * 
+     */
     void insert(const int POS, const T VAL);
+    /**
+     * @brief Removes the value at the specified position
+     * 
+     * @param POS determines what position to get the value at
+     * 
+     */
     void remove(const int POS);
+    /**
+     * @brief Prints the entire linked list(not needed just a nice thing for testing)
+     * 
+     * 
+     */
     void print() const;
+    /**
+     * @brief Prints the entire linked list in reverse(not needed just a nice thing for testing)
+     * 
+     * 
+     */
     void printReverse() const;
 };
 
 template<typename T>
 DoublyLinkedList<T>::DoublyLinkedList(){
+  // Default constructor for the first node in the list
     mpHead = nullptr;
     mpTail = nullptr;
     mSize = 0;
@@ -80,13 +117,16 @@ DoublyLinkedList<T>::DoublyLinkedList(){
 
 template<typename T>
 DoublyLinkedList<T>::DoublyLinkedList(const DoublyLinkedList& OTHER){
+  // Performing a deep copy of the object passed to the copy constructor
   mSize = OTHER.mSize;
   DoublyNode<T>* pCurrent;
   DoublyNode<T>* pNext;
+  // Checking if the head is nullptr
   if(OTHER.mpHead == nullptr){
     mpHead = nullptr;
   }
   else{
+    // Creating the tail and head to store the current values and copy them over
     mpHead = new DoublyNode<T>;
     mpTail = new DoublyNode<T>;
     mpHead->pNext = OTHER.mpHead->pNext;
@@ -99,6 +139,7 @@ DoublyLinkedList<T>::DoublyLinkedList(const DoublyLinkedList& OTHER){
     pNext = mpHead->pNext;
   }
   while(pNext->pNext != nullptr){
+    // Performing a copy of the entire linked list
     pCurrent->pNext = new DoublyNode<T>;
     pCurrent = pCurrent->pNext;
     pCurrent->pNext = pNext->pNext;
@@ -112,6 +153,8 @@ DoublyLinkedList<T>::DoublyLinkedList(const DoublyLinkedList& OTHER){
 
 template<typename T>
 DoublyLinkedList<T>& DoublyLinkedList<T>::operator=(const DoublyLinkedList& OTHER){
+  // Overloading the equality operator to perform a deep copy
+  // Same process as above essentially
   if(this == &OTHER)
     return *this;
   this->mSize = OTHER.mSize;
@@ -147,6 +190,7 @@ DoublyLinkedList<T>& DoublyLinkedList<T>::operator=(const DoublyLinkedList& OTHE
 
 template<typename T>
 DoublyLinkedList<T>::~DoublyLinkedList(){
+  // Deleting all of the allocated memory from the linked list
     DoublyNode<T> *temp = mpHead, *next;
     while(temp != nullptr){
         next = temp->pNext;
@@ -162,6 +206,7 @@ DoublyLinkedList<T>::~DoublyLinkedList(){
 
 template<typename T>
 T DoublyLinkedList<T>::get(const int POS) const {
+  // Getting the current value at the position provided by iterating through the list
   DoublyNode<T> *currentNode = new DoublyNode<T>;
   currentNode = mpHead;
   int counter = 0;
@@ -176,6 +221,7 @@ T DoublyLinkedList<T>::get(const int POS) const {
 
 template<typename T>
 void DoublyLinkedList<T>::set(const int POS, const T VAL){
+  // Setting the value at a specific position by iterating through and setting the current node's value
   DoublyNode<T> *currentNode = new DoublyNode<T>;
   currentNode = mpHead;
   int counter = 0;
@@ -192,6 +238,7 @@ void DoublyLinkedList<T>::insert(const int POS, const T VAL){
   DoublyNode<T> *newNode = new DoublyNode<T>;
   DoublyNode<T> *currentNode = new DoublyNode<T>;
   DoublyNode<T> *prevNode = new DoublyNode<T>;
+  // Inserting a node anywhere into a list by flipping around pointers to point to the new node
   newNode->value = VAL;
   if(POS <= 0){
     if(mpHead == nullptr){
@@ -230,6 +277,7 @@ void DoublyLinkedList<T>::insert(const int POS, const T VAL){
 
 template<typename T>
 void DoublyLinkedList<T>::remove(const int POS){
+  // Removing a node form anywhere in the list by flipping around pointers and removing it from the link and deleting it
   DoublyNode<T> *newNode = new DoublyNode<T>;
   DoublyNode<T> *currentNode = new DoublyNode<T>;
   if(POS < 0){
@@ -258,12 +306,14 @@ void DoublyLinkedList<T>::remove(const int POS){
 
 template<typename T>
 int DoublyLinkedList<T>::size() const{
+  // Returns size
   return mSize;
 }
 
 
 template<typename T>
 void DoublyLinkedList<T>::print() const {
+  // Prints out the list so I don't have to write code for it everytime
   DoublyNode<T> *currentDoublyNode = new DoublyNode<T>;
   currentDoublyNode = mpHead;
 
@@ -277,6 +327,7 @@ void DoublyLinkedList<T>::print() const {
 
 template<typename T>
 void DoublyLinkedList<T>::printReverse() const{
+  // Prints out the list in reverse so I don't have to
   DoublyNode<T> *currentDoublyNode = new DoublyNode<T>;
   currentDoublyNode = mpTail;
 
