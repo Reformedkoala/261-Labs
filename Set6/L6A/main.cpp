@@ -30,5 +30,19 @@ int main(int argc, char* argv[]) {
         cerr << "Shutting down" << endl;
         return -1;
     }
-    
+    int arrayBound;
+    fileIn >> arrayBound;
+    vector<vector<int>> multiList = read_file(fileIn, arrayBound);
+    int min = multiList.at(0).at(0);
+    int max = multiList.at(0).at(0);
+    for(int i = 0; i < arrayBound; i++){
+      for(int j = 0; j < arrayBound; j++){
+        cout << multiList.at(i).at(j) << " ";
+        if(min > multiList.at(i).at(j)){min = multiList.at(i).at(j);}
+        if(max < multiList.at(i).at(j)){max = multiList.at(i).at(j);}
+      }
+      cout << endl;
+    }
+    cout << "The min is: " << min << endl;
+    cout << "The max is: " << max << endl;
 }

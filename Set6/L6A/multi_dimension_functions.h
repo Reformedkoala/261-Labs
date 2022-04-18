@@ -27,4 +27,6 @@ string prompt_user_for_filename();
  */
 bool open_file(ifstream &inputFile, string filename);
 
+vector<vector<int>> read_file(ifstream &inputFile, int arrayBound);
+
 #endif
