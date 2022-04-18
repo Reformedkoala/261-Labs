@@ -55,3 +55,4 @@ Throw binary in a loop instead
 
 BFS- Search all neighbors first then search all neighbors neighbors and so on - queue - graph algorithms
 DFS- Search one direction then backtrach then different direction and so forth - stack - graph algorithms
+
