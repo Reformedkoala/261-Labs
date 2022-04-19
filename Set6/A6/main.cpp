@@ -49,7 +49,7 @@ int main(int argc, char* argv[]) {
     int choice = get_user_input();
     bool result;
     if(choice == 1){result = BFS(multiList, arrayRow, arrayCol);}
-    else{return -1;}
+    else{result = DFS(multiList, arrayRow, arrayCol);}
     if(result == true){
       cout << "End was reached" << endl;
     } else{

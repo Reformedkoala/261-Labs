@@ -33,4 +33,6 @@ int get_user_input();
 
 bool BFS(vector<vector<char>> &ogList, const int ARRAYROW, const int ARRAYCOL);
 
+bool DFS(vector<vector<char>> &ogList, const int ARRAYROW, const int ARRAYCOL);
+
 #endif

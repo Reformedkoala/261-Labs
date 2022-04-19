@@ -135,3 +135,72 @@ bool BFS(vector<vector<char>> &ogList, const int ARRAYROW, const int ARRAYCOL){
 
 
 }
+
+
+bool DFS(vector<vector<char>> &ogList, const int ARRAYROW, const int ARRAYCOL){
+  struct Point {
+    int x;
+    int y;
+    char value; 
+  };
+  Stack<Point> dfsStack;
+  for(int i = 0; i < ARRAYROW; i++){
+    for(int j = 0; j < ARRAYCOL; j++){
+      if(ogList.at(i).at(j) == 'S'){
+        Point start;
+        start.value = ogList.at(i).at(j);
+        start.y = i;
+        start.x = j;
+        dfsStack.push(start);
+        break;
+      }
+    }
+  }
+  
+  while(dfsStack.peak().value != 'E'){
+    
+    if(ogList.at(dfsStack.peak().y+1).at(dfsStack.peak().x) == '.' || ogList.at(dfsStack.peak().y+1).at(dfsStack.peak().x) == 'E'){
+      Point next; 
+      if(ogList.at(dfsStack.peak().y+1).at(dfsStack.peak().x) == 'E'){return true;}
+      ogList.at(dfsStack.peak().y+1).at(dfsStack.peak().x) = '@';
+      next.value = ogList.at(dfsStack.peak().y+1).at(dfsStack.peak().x); 
+      next.y = dfsStack.peak().y+1; 
+      next.x = dfsStack.peak().x; 
+      dfsStack.push(next);
+    } 
+    else if(ogList.at(dfsStack.peak().y).at(dfsStack.peak().x+1) == '.' || ogList.at(dfsStack.peak().y).at(dfsStack.peak().x+1) == 'E'){
+      Point next; 
+      if(ogList.at(dfsStack.peak().y).at(dfsStack.peak().x+1) == 'E'){return true;}
+      ogList.at(dfsStack.peak().y).at(dfsStack.peak().x+1) = '@';
+      next.value = ogList.at(dfsStack.peak().y).at(dfsStack.peak().x+1); 
+      next.y = dfsStack.peak().y; 
+      next.x = dfsStack.peak().x+1; 
+      dfsStack.push(next);
+    } 
+    else if(ogList.at(dfsStack.peak().y-1).at(dfsStack.peak().x) == '.' || ogList.at(dfsStack.peak().y-1).at(dfsStack.peak().x) == 'E' ){
+      Point next; 
+      if(ogList.at(dfsStack.peak().y-1).at(dfsStack.peak().x) == 'E'){return true;}
+      ogList.at(dfsStack.peak().y-1).at(dfsStack.peak().x) = '@';
+      next.value = ogList.at(dfsStack.peak().y-1).at(dfsStack.peak().x); 
+      next.y = dfsStack.peak().y-1; 
+      next.x = dfsStack.peak().x; 
+      dfsStack.push(next);
+    } 
+    else if(ogList.at(dfsStack.peak().y).at(dfsStack.peak().x-1) == '.' || ogList.at(dfsStack.peak().y).at(dfsStack.peak().x-1) == 'E'){
+      Point next; 
+      if(ogList.at(dfsStack.peak().y).at(dfsStack.peak().x-1) == 'E'){return true;}
+      ogList.at(dfsStack.peak().y).at(dfsStack.peak().x-1) = '@';
+      next.value = ogList.at(dfsStack.peak().y).at(dfsStack.peak().x-1); 
+      next.y = dfsStack.peak().y; 
+      next.x = dfsStack.peak().x-1; 
+      dfsStack.push(next);
+    } else{
+      dfsStack.pop();
+    }
+
+    if(dfsStack.peak().value == 'S'){return false;}
+
+  }
+  return false;
+
+}
