@@ -90,13 +90,13 @@ bool BFS(vector<vector<char>> &ogList, const int ARRAYROW, const int ARRAYCOL){
     }
   }
   while(!bfsQueue.isEmpty()){
-
     if(bfsQueue.peak().value == 'S'){bfsQueue.pop();}
-    else if(bfsQueue.peak().value == '.'){ogList.at(bfsQueue.peak().y).at(bfsQueue.peak().x) = '@'; bfsQueue.pop();}
-    else if(bfsQueue.peak().value == 'E'){return true;}
+    else if(bfsQueue.peak().value == '@'){bfsQueue.pop();}
 
     if(ogList.at(bfsQueue.peak().y+1).at(bfsQueue.peak().x) == '.' || ogList.at(bfsQueue.peak().y+1).at(bfsQueue.peak().x) == 'E'){
       Point next; 
+      if(ogList.at(bfsQueue.peak().y+1).at(bfsQueue.peak().x) == 'E'){return true;}
+      ogList.at(bfsQueue.peak().y+1).at(bfsQueue.peak().x) = '@';
       next.value = ogList.at(bfsQueue.peak().y+1).at(bfsQueue.peak().x); 
       next.y = bfsQueue.peak().y+1; 
       next.x = bfsQueue.peak().x; 
@@ -104,6 +104,8 @@ bool BFS(vector<vector<char>> &ogList, const int ARRAYROW, const int ARRAYCOL){
     } 
     if(ogList.at(bfsQueue.peak().y).at(bfsQueue.peak().x+1) == '.' || ogList.at(bfsQueue.peak().y).at(bfsQueue.peak().x+1) == 'E'){
       Point next; 
+      if(ogList.at(bfsQueue.peak().y).at(bfsQueue.peak().x+1) == 'E'){return true;}
+      ogList.at(bfsQueue.peak().y).at(bfsQueue.peak().x+1) = '@';
       next.value = ogList.at(bfsQueue.peak().y).at(bfsQueue.peak().x+1); 
       next.y = bfsQueue.peak().y; 
       next.x = bfsQueue.peak().x+1; 
@@ -111,6 +113,8 @@ bool BFS(vector<vector<char>> &ogList, const int ARRAYROW, const int ARRAYCOL){
     } 
     if(ogList.at(bfsQueue.peak().y-1).at(bfsQueue.peak().x) == '.' || ogList.at(bfsQueue.peak().y-1).at(bfsQueue.peak().x) == 'E' ){
       Point next; 
+      if(ogList.at(bfsQueue.peak().y-1).at(bfsQueue.peak().x) == 'E'){return true;}
+      ogList.at(bfsQueue.peak().y-1).at(bfsQueue.peak().x) = '@';
       next.value = ogList.at(bfsQueue.peak().y-1).at(bfsQueue.peak().x); 
       next.y = bfsQueue.peak().y-1; 
       next.x = bfsQueue.peak().x; 
@@ -118,6 +122,8 @@ bool BFS(vector<vector<char>> &ogList, const int ARRAYROW, const int ARRAYCOL){
     } 
     if(ogList.at(bfsQueue.peak().y).at(bfsQueue.peak().x-1) == '.' || ogList.at(bfsQueue.peak().y).at(bfsQueue.peak().x-1) == 'E'){
       Point next; 
+      if(ogList.at(bfsQueue.peak().y).at(bfsQueue.peak().x-1) == 'E'){return true;}
+      ogList.at(bfsQueue.peak().y).at(bfsQueue.peak().x-1) = '@';
       next.value = ogList.at(bfsQueue.peak().y).at(bfsQueue.peak().x-1); 
       next.y = bfsQueue.peak().y; 
       next.x = bfsQueue.peak().x-1; 
