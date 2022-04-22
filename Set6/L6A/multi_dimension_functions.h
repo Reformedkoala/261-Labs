@@ -4,11 +4,11 @@
 #include <fstream>
 #include <vector>
 using namespace std;
-/* CSCI 261: A4: Wavefront OBJ File Format
+/* CSCI 261: Lab 6A - Multidimensional Data
  *
  * Author: Garrett Thompson
- *
- * Reading in a wavefront OBJ File Format and verifying certain properties of the file as well as printing out based on user specification.
+ * 
+ * This program prints out the multi dimensional array stored in a data file by taking in the integers and iterating over it through vectors
  * 
  */
 
@@ -27,6 +27,14 @@ string prompt_user_for_filename();
  */
 bool open_file(ifstream &inputFile, string filename);
 
+
+ /**
+ * @brief Creates the 2D array of integers
+ * 
+ * @param inputFile inputfile passed by reference in order to use it and set it for the rest of the program
+ * @param arrayBound array bounds to keep track of
+ * 
+ */
 vector<vector<int>> read_file(ifstream &inputFile, int arrayBound);
 
 #endif

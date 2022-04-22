@@ -4,11 +4,12 @@
 #include <fstream>
 #include <vector>
 using namespace std;
-/* CSCI 261: A4: Wavefront OBJ File Format
+/* CSCI 261: Assignment 6: A6 - A-MAZE-ing
  *
  * Author: Garrett Thompson
- *
- * Reading in a wavefront OBJ File Format and verifying certain properties of the file as well as printing out based on user specification.
+ * 
+ * This program allows the user to solve a text maze file
+ * This stores the function prototypes for the functions I use in main 
  * 
  */
 
@@ -27,12 +28,40 @@ string prompt_user_for_filename();
  */
 bool open_file(ifstream &inputFile, string filename);
 
+ /**
+ * @brief Opens the file
+ * 
+ * @param inputFile inputfile passed by reference in order to use it and set it for the rest of the program
+ * @param ARRAYROW number of rows for the file
+ * @param ARRAYCOL number of cols for the file
+ * 
+ */
 vector<vector<char>> read_file(ifstream &inputFile, const int ARRAYROW, const int ARRAYCOL);
 
+ /**
+ * @brief Gets user input in order to branch down either bfs or dfs
+ * 
+ */
 int get_user_input();
 
+/**
+ * @brief Sovles the program based on BFS
+ * 
+ * @param ogList maze 2D array to iterate over and solve
+ * @param ARRAYROW number of rows for the file
+ * @param ARRAYCOL number of cols for the file
+ * 
+ */
 bool BFS(vector<vector<char>> &ogList, const int ARRAYROW, const int ARRAYCOL);
 
+/**
+ * @brief Sovles the program based on DFS
+ * 
+ * @param ogList maze 2D array to iterate over and solve
+ * @param ARRAYROW number of rows for the file
+ * @param ARRAYCOL number of cols for the file
+ * 
+ */
 bool DFS(vector<vector<char>> &ogList, const int ARRAYROW, const int ARRAYCOL);
 
 #endif

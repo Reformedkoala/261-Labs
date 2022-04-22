@@ -1,8 +1,8 @@
-/* CSCI 261: A4: Wavefront OBJ File Format
+/* CSCI 261: Lab 6A - Multidimensional Data
  *
  * Author: Garrett Thompson
- *
- * Reading in a wavefront OBJ File Format and verifying certain properties of the file as well as printing out based on user specification.
+ * 
+ * This program prints out the multi dimensional array stored in a data file by taking in the integers and iterating over it through vectors
  * 
  */
 
@@ -35,9 +35,11 @@ bool open_file(ifstream &inputFile, string filename){
 }
 
 vector<vector<int>> read_file(ifstream &inputFile, int arrayBound){
+  // Creating our temporary vectors
   vector<vector<int>> multiList;
   vector<int> tempList;
   int tempInt;
+  // Double for loop to iterate over the file and push back to the 2D array
   for(int i = 0; i < arrayBound; i++){
     for(int j = 0; j < arrayBound; j++){
         inputFile >> tempInt;

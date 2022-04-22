@@ -1,4 +1,4 @@
-TARGET = L6A
+TARGET = L6B
 SRC_FILES = main.cpp 
 
 CXX = g++

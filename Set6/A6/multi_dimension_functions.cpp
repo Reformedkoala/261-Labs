@@ -1,8 +1,9 @@
-/* CSCI 261: A4: Wavefront OBJ File Format
+/* CSCI 261: Assignment 6: A6 - A-MAZE-ing
  *
  * Author: Garrett Thompson
- *
- * Reading in a wavefront OBJ File Format and verifying certain properties of the file as well as printing out based on user specification.
+ * 
+ * This program allows the user to solve a text maze file
+ * This holds the main function definitions the program runs on
  * 
  */
 

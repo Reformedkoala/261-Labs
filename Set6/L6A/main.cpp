@@ -4,11 +4,11 @@
 #include <vector>
 #include "multi_dimension_functions.h"
 using namespace std;
-/* CSCI 261: A4: Wavefront OBJ File Format
+/* CSCI 261: Lab 6A - Multidimensional Data
  *
  * Author: Garrett Thompson
- *
- * Reading in a wavefront OBJ File Format and verifying certain properties of the file as well as printing out based on user specification.
+ * 
+ * This program prints out the multi dimensional array stored in a data file by taking in the integers and iterating over it through vectors
  * 
  */
 int main(int argc, char* argv[]) {
@@ -35,6 +35,7 @@ int main(int argc, char* argv[]) {
     vector<vector<int>> multiList = read_file(fileIn, arrayBound);
     int min = multiList.at(0).at(0);
     int max = multiList.at(0).at(0);
+    // Iterating over the list and printing out while keeping track of the max and min
     for(int i = 0; i < arrayBound; i++){
       for(int j = 0; j < arrayBound; j++){
         cout << multiList.at(i).at(j) << " ";

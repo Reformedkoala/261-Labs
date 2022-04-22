@@ -4,11 +4,12 @@
 #include <vector>
 #include "multi_dimension_functions.h"
 using namespace std;
-/* CSCI 261: A4: Wavefront OBJ File Format
+/* CSCI 261: Assignment 6: A6 - A-MAZE-ing
  *
  * Author: Garrett Thompson
- *
- * Reading in a wavefront OBJ File Format and verifying certain properties of the file as well as printing out based on user specification.
+ * 
+ * This program allows the user to solve a text maze file
+ * The main.cpp file stores the main logic and function calls of the program and runs what is happening
  * 
  */
 int main(int argc, char* argv[]) {
@@ -31,30 +32,28 @@ int main(int argc, char* argv[]) {
         cerr << "Shutting down" << endl;
         return -1;
     }
+    // Asks the user for input and branches to either BFS or DFS
     cout << "Enter 1 to search via BFS." << endl;
     cout << "Enter 2 to search via DFS." << endl;
+    // Collecting the array rows and cols
     int arrayRow;
     fileIn >> arrayRow;
     int arrayCol;
     fileIn >> arrayCol;
+    // Creating the 2D array of the maze
     vector<vector<char>> multiList = read_file(fileIn, arrayRow, arrayCol);
-    /*
-    for(int i = 0; i < arrayRow; i++){
-      for(int j = 0; j < arrayCol; j++){
-        cout << multiList.at(i).at(j) << " ";
-      }
-      cout << endl;
-    }
-    */
     int choice = get_user_input();
     bool result;
+    // Performing BFS or DFS on the maze
     if(choice == 1){result = BFS(multiList, arrayRow, arrayCol);}
     else{result = DFS(multiList, arrayRow, arrayCol);}
+    // Logic to return if the maze was found or not
     if(result == true){
       cout << "End was reached" << endl;
     } else{
       cout << "End cannot be reached" << endl;
     }
+    // Printing out the maze
     for(int i = 0; i < arrayRow; i++){
       for(int j = 0; j < arrayCol; j++){
         cout << multiList.at(i).at(j) << " ";
