@@ -2,7 +2,7 @@
 using namespace sf;
 #include "IsoscelesTriangle.h"
 #include <cmath>
-bool IsoscelesTriangle::setCoordinates(float x1, float y1, float x2, float y2, float x3, float y3){
+bool IsoscelesTriangle::setCoordinates(double x1, double y1, double x2, double y2, double x3, double y3){
   float d1 = sqrt((x2-x1)*(x2-x1) + (y2-y1)*(y2-y1));
   float d2 = sqrt((x3-x2)*(x3-x2) + (y3-y2)*(y3-y2));
   float d3 = sqrt((x1-x3)*(x1-x3) + (y1-y3)*(y1-y3));

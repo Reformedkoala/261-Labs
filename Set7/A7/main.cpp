@@ -39,12 +39,12 @@ int main(int argc, char* argv[]) {
 
     vector<Triangle*> TriangleList;
     char triangleType;
-    float x1;  
-    float y1; 
-    float x2;
-    float y2;
-    float x3;
-    float y3;
+    double x1;  
+    double y1; 
+    double x2;
+    double y2;
+    double x3;
+    double y3;
     int r;
     int g; 
     int b;
@@ -60,8 +60,9 @@ int main(int argc, char* argv[]) {
         fileIn >> g;
         fileIn >> b;
         if(triangleType == 'S'){
-            ScaleneTriangle sTriangle;
-            Triangle *pBaseTriangle = &sTriangle;
+            ScaleneTriangle* sTriangle;
+            sTriangle = new ScaleneTriangle;
+            Triangle* pBaseTriangle = &*sTriangle;
             if (pBaseTriangle->setCoordinates(x1, y1, x2, y2, x3, y3) == true){
                pBaseTriangle->setColor(r,g,b);
                TriangleList.push_back(pBaseTriangle);
@@ -70,8 +71,9 @@ int main(int argc, char* argv[]) {
             }
 
         }else if(triangleType == 'I'){
-            IsoscelesTriangle iTriangle;
-            Triangle *pBaseTriangle = &iTriangle;
+            IsoscelesTriangle* iTriangle;
+            iTriangle = new IsoscelesTriangle;
+            Triangle* pBaseTriangle = &*iTriangle;
             if (pBaseTriangle->setCoordinates(x1, y1, x2, y2, x3, y3) == true){
                 pBaseTriangle->setColor(r,g,b);
                 TriangleList.push_back(pBaseTriangle);
@@ -80,8 +82,9 @@ int main(int argc, char* argv[]) {
             }
 
         } else if(triangleType == 'E'){
-            EquilateralTriangle eTriangle;
-            Triangle *pBaseTriangle = &eTriangle;
+            EquilateralTriangle* eTriangle;
+            eTriangle = new EquilateralTriangle;
+            Triangle *pBaseTriangle = &*eTriangle;
             if (pBaseTriangle->setCoordinates(x1, y1, x2, y2, x3, y3) == true){
                 pBaseTriangle->setColor(r,g,b);
                 TriangleList.push_back(pBaseTriangle);
@@ -109,7 +112,9 @@ int main(int argc, char* argv[]) {
 
         /////////////////////////////////////
         // BEGIN DRAWING HERE
-        
+        for(int i = 0; i < TriangleList.size(); i++){
+            TriangleList.at(i)->draw(window);
+        }
         //  END  DRAWING HERE
         /////////////////////////////////////
 
