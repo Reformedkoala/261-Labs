@@ -1,0 +1,9 @@
+Username: Reformedkoala
+Balance: 100
+Played: 10
+Won: 5
+Lost: 5
+Winrate: 50
+Roulette: 4
+Blackjack: 3
+Slots: 3
