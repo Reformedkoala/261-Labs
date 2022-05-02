@@ -230,3 +230,243 @@ string rouletteGame(){
     int x = rand() % (37-0+1) + 0;
     return rouletteWheel.at(x);
 }
+
+void blackjackGame(Player &Player1){
+    //  Game of blackjack assuming 8 decks so it is possible to draw the same card and not run out of that same card
+    vector<vector<string>> deckList;
+    vector<string> heartsList = {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "Jack", "Queen", "King", "Ace"};
+    vector<string> diamondsList = {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "Jack", "Queen", "King", "Ace"};
+    vector<string> spadesList = {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "Jack", "Queen", "King", "Ace"};
+    vector<string> clubsList = {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "Jack", "Queen", "King", "Ace"};
+    deckList.push_back(heartsList);
+    deckList.push_back(diamondsList);
+    deckList.push_back(spadesList);
+    deckList.push_back(clubsList);
+    int dealerTotal;
+    int playerTotal;
+    int playerBet;
+    int playerChoice;
+    int suit;
+    int card;
+    vector<string> dealerCards;
+    vector<string> playerCards;
+    string tempString;
+    cout << "WARNING: if you roll an Ace the game will determine what is best for you without you choosing. Once it has chosen you can not change it." << endl;
+    cout << "How much would you like to bet: ";
+    cin >> playerBet;
+    srand(time(0));
+    rand();
+    for(int i = 0; i < 2; i++){
+        suit = rand() % (3-0+1) + 0;
+        card = rand() % (13-0+1) + 0;
+        playerDraw(playerTotal, playerCards, suit, card, deckList);
+    }
+    for(int i = 0; i < 2; i++){
+        suit = rand() % (3-0+1) + 0;
+        card = rand() % (13-0+1) + 0;
+        dealerDraw(dealerTotal, dealerCards, suit, card, deckList);
+    }
+    while(true){
+        cout << "Your cards are ";
+        for(unsigned int i = 0; i < playerCards.size(); i++){
+            cout << "'" << playerCards.at(i) << "', ";
+        }
+        cout << " and your total is " << playerTotal << endl;
+        cout << "The dealer has a " << dealerCards.at(0) << " and one other card" << endl;
+        cout << "Will you..." << endl;
+        cout << "1) Hit" << endl;
+        cout << "2) Double down" << endl;
+        cout << "3) Stand (ends the game)" << endl;
+        cout << "Enter choice here: ";
+        cin >> playerChoice;
+        if (!cin.fail() && playerChoice >= 1 && playerChoice <= 3){
+            if(playerChoice == 1){
+                suit = rand() % (3-0+1) + 0;
+                card = rand() % (13-0+1) + 0;
+                playerDraw(playerTotal, playerCards, suit, card, deckList);
+                if(playerTotal > 21){
+                    cout << "You busted at " << playerTotal << endl; 
+                    cout << "Your cards were ";
+                    for(unsigned int i = 0; i < playerCards.size(); i++){
+                        cout << "'" << playerCards.at(i) << "', ";
+                    }
+                    cout << " and your total is " << playerTotal << endl;
+                    break;
+                }
+            } else if(playerChoice == 2){
+                playerBet *= 2;
+                cout << "You now have a bet of " << playerBet << endl;
+                suit = rand() % (3-0+1) + 0;
+                card = rand() % (13-0+1) + 0;
+                playerDraw(playerTotal, playerCards, suit, card, deckList);
+                if(playerTotal > 21){
+                    cout << "You busted at " << playerTotal << endl; 
+                    break;
+                }else{
+                    break;
+                }
+            } else{
+                cout << "You chose to stand with a total of " << playerTotal << endl;
+                break;
+            }
+        }else{
+            cerr << "Invalid input please enter a number between 1 and 3" << endl;
+            cin.clear();
+            char badChar; 
+            do { badChar = cin.get(); } while( badChar != '\n' );
+        }
+    }
+    if (playerTotal > 21){
+        cout << "You lost better luck next time!" << endl;
+        Player1.setBalance(Player1.getBalance() - playerBet);
+        Player1.setGamesPlayed(Player1.getGamesPlayed()+1);
+        Player1.setGamesLost(Player1.getGamesLost()+1);
+        Player1.setBlackjackPlayed(Player1.getBlackjackPlayed()+1);
+    } else{
+        while(dealerTotal < 17){
+            dealerDraw(dealerTotal, dealerCards, suit, card, deckList);
+        }
+        if (dealerTotal > 21){
+            cout << "Dealer busted" << endl;
+            cout << "His cards were ";
+            for(unsigned int i = 0; i < dealerCards.size(); i++){
+                cout << "'" << dealerCards.at(i) << "', ";
+            }
+            cout << " and his total was " << dealerTotal << endl;
+            Player1.setBalance(playerBet*2 + Player1.getBalance());
+            Player1.setGamesPlayed(Player1.getGamesPlayed()+1);
+            Player1.setGamesWon(Player1.getGamesWon()+1);
+            Player1.setBlackjackPlayed(Player1.getBlackjackPlayed()+1);
+        } else if (dealerTotal >= playerTotal){
+            cout << "You had less then the dealer, better luck next time!" << endl;
+            cout << "His cards were ";
+            for(unsigned int i = 0; i < dealerCards.size(); i++){
+                cout << "'" << dealerCards.at(i) << "', ";
+            }
+            cout << " and his total was " << dealerTotal << endl;
+            Player1.setBalance(Player1.getBalance() - playerBet);
+            Player1.setGamesPlayed(Player1.getGamesPlayed()+1);
+            Player1.setGamesLost(Player1.getGamesLost()+1);
+            Player1.setBlackjackPlayed(Player1.getBlackjackPlayed()+1);
+        } else{
+            cout << "You had more then the dealer and didn't bust, congratulations!" << endl;
+            cout << "His cards were ";
+            for(unsigned int i = 0; i < dealerCards.size(); i++){
+                cout << "'" << dealerCards.at(i) << "', ";
+            }
+            cout << " and his total was " << dealerTotal << endl;
+            Player1.setBalance(playerBet*2 + Player1.getBalance());
+            Player1.setGamesPlayed(Player1.getGamesPlayed()+1);
+            Player1.setGamesWon(Player1.getGamesWon()+1);
+            Player1.setBlackjackPlayed(Player1.getBlackjackPlayed()+1);
+        }
+    }
+}
+
+
+
+void playerDraw(int &playerTotal, vector<string>& playerCards, int suit, int card, vector<vector<string>> deckList){
+    string tempString;
+    if(suit == 0){
+        tempString = deckList.at(suit).at(card) + " of hearts";
+        if(deckList.at(suit).at(card) == "Jack" || deckList.at(suit).at(card) == "Queen" || deckList.at(suit).at(card) == "King"){
+            playerTotal += 10;
+        } else if (deckList.at(suit).at(card) == "Ace" && playerTotal + 11 <= 21 ){
+            playerTotal += 11;
+        } else if (deckList.at(suit).at(card) == "Ace" && playerTotal + 11 > 21 ){
+            playerTotal += 1;
+        } else{
+            playerTotal += stoi(deckList.at(suit).at(card));
+        }
+        playerCards.push_back(tempString);
+    }else if (suit == 1){
+        tempString = deckList.at(suit).at(card) + " of diamonds";
+        if(deckList.at(suit).at(card) == "Jack" || deckList.at(suit).at(card) == "Queen" || deckList.at(suit).at(card) == "King"){
+            playerTotal += 10;
+        } else if (deckList.at(suit).at(card) == "Ace" && playerTotal + 11 <= 21 ){
+            playerTotal += 11;
+        } else if (deckList.at(suit).at(card) == "Ace" && playerTotal + 11 > 21 ){
+            playerTotal += 1;
+        } else{
+            playerTotal += stoi(deckList.at(suit).at(card));
+        }
+        playerCards.push_back(tempString);
+    }else if (suit == 2){
+        tempString = deckList.at(suit).at(card) + " of spades";
+        if(deckList.at(suit).at(card) == "Jack" || deckList.at(suit).at(card) == "Queen" || deckList.at(suit).at(card) == "King"){
+            playerTotal += 10;
+        } else if (deckList.at(suit).at(card) == "Ace" && playerTotal + 11 <= 21 ){
+            playerTotal += 11;
+        } else if (deckList.at(suit).at(card) == "Ace" && playerTotal + 11 > 21 ){
+            playerTotal += 1;
+        } else{
+            playerTotal += stoi(deckList.at(suit).at(card));
+        }
+        playerCards.push_back(tempString);
+    }else if (suit == 3){
+        tempString = deckList.at(suit).at(card) + " of clubs";
+        if(deckList.at(suit).at(card) == "Jack" || deckList.at(suit).at(card) == "Queen" || deckList.at(suit).at(card) == "King"){
+            playerTotal += 10;
+        } else if (deckList.at(suit).at(card) == "Ace" && playerTotal + 11 <= 21 ){
+            playerTotal += 11;
+        } else if (deckList.at(suit).at(card) == "Ace" && playerTotal + 11 > 21 ){
+            playerTotal += 1;
+        } else{
+            playerTotal += stoi(deckList.at(suit).at(card));
+        }
+        playerCards.push_back(tempString);
+    }
+}
+
+void dealerDraw(int &dealerTotal, vector<string>& dealerCards, int suit, int card, vector<vector<string>> deckList){
+    string tempString;
+    if(suit == 0){
+        tempString = deckList.at(suit).at(card) + " of hearts";
+        if(deckList.at(suit).at(card) == "Jack" || deckList.at(suit).at(card) == "Queen" || deckList.at(suit).at(card) == "King"){
+            dealerTotal += 10;
+        } else if (deckList.at(suit).at(card) == "Ace" && dealerTotal + 11 <= 21 ){
+            dealerTotal += 11;
+        } else if (deckList.at(suit).at(card) == "Ace" && dealerTotal + 11 > 21 ){
+            dealerTotal += 1;
+        } else{
+            dealerTotal += stoi(deckList.at(suit).at(card));
+        }
+        dealerCards.push_back(tempString);
+    }else if (suit == 1){
+        tempString = deckList.at(suit).at(card) + " of diamonds";
+        if(deckList.at(suit).at(card) == "Jack" || deckList.at(suit).at(card) == "Queen" || deckList.at(suit).at(card) == "King"){
+            dealerTotal += 10;
+        } else if (deckList.at(suit).at(card) == "Ace" && dealerTotal + 11 <= 21 ){
+            dealerTotal += 11;
+        } else if (deckList.at(suit).at(card) == "Ace" && dealerTotal + 11 > 21 ){
+            dealerTotal += 1;
+        } else{
+            dealerTotal += stoi(deckList.at(suit).at(card));
+        }
+        dealerCards.push_back(tempString);
+    }else if (suit == 2){
+        tempString = deckList.at(suit).at(card) + " of spades";
+        if(deckList.at(suit).at(card) == "Jack" || deckList.at(suit).at(card) == "Queen" || deckList.at(suit).at(card) == "King"){
+            dealerTotal += 10;
+        } else if (deckList.at(suit).at(card) == "Ace" && dealerTotal + 11 <= 21 ){
+            dealerTotal += 11;
+        } else if (deckList.at(suit).at(card) == "Ace" && dealerTotal + 11 > 21 ){
+            dealerTotal += 1;
+        } else{
+            dealerTotal += stoi(deckList.at(suit).at(card));
+        }
+        dealerCards.push_back(tempString);
+    }else if (suit == 3){
+        tempString = deckList.at(suit).at(card) + " of clubs";
+        if(deckList.at(suit).at(card) == "Jack" || deckList.at(suit).at(card) == "Queen" || deckList.at(suit).at(card) == "King"){
+            dealerTotal += 10;
+        } else if (deckList.at(suit).at(card) == "Ace" && dealerTotal + 11 <= 21 ){
+            dealerTotal += 11;
+        } else if (deckList.at(suit).at(card) == "Ace" && dealerTotal + 11 > 21 ){
+            dealerTotal += 1;
+        } else{
+            dealerTotal += stoi(deckList.at(suit).at(card));
+        }
+        dealerCards.push_back(tempString);
+    }
+}

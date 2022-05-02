@@ -61,7 +61,7 @@ int main(int argc, char* argv[]) {
             if(userChoice == 1){
                 rouletteChoice(Player1);
             } else if (userChoice == 2) {
-                cout << "Blackjack" << endl;
+                blackjackGame(Player1);
             } else if (userChoice == 3){
                 cout << "Slots" << endl;
             } else if(userChoice == 4){

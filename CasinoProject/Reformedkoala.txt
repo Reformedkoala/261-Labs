@@ -1,5 +1,5 @@
 Username: Reformedkoala
-Balance: 100
+Balance: 1000
 Played: 10
 Won: 5
 Lost: 5
