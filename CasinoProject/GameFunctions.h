@@ -14,4 +14,6 @@ void playerDraw(int &playerTotal, vector<string>& playerCards, int suit, int car
 
 void dealerDraw(int &dealerTotal, vector<string>& dealerCards, int suit, int card, vector<vector<string>> deckList);
 
+void singleLineSlots(Player &Player1);
+
 #endif

@@ -470,3 +470,101 @@ void dealerDraw(int &dealerTotal, vector<string>& dealerCards, int suit, int car
         dealerCards.push_back(tempString);
     }
 }
+
+
+void singleLineSlots(Player &Player1){
+    srand(time(0));
+    rand();
+    int userBet;
+    int userChoice;
+    int firstSlot;
+    int secondSlot;
+    int thirdSlot;
+    vector<string> singleLine = {"7", "BARBAR", "BAR", "Diamond", "Cherry", "Lemon"};
+    cout << "Hello welcome to the Single Line Slot Machine of No Consequences Casino." << endl;
+    cout << "The rules here are simple, this is a high stakes Single Line Slot machine with 6 different Icon options." << endl;
+    cout << "3 7's gives 1000x payout" << endl;
+    cout << "3 BARBAR's gives 100x payout" << endl;
+    cout << "3 BAR's gives 50x payout" << endl;
+    cout << "3 Diamonds's gives 25x payout" << endl;
+    cout << "3 Cherry's gives 10x payout" << endl;
+    cout << "Finally, 3 Lemon's gives 5x payout" << endl;
+    cout << "WARNING: THERE ARE NO PARTIAL-WINS OR MIXING OF ICONS FOR PAYOUTS" << endl;
+    cout << "How much would you like to bet (A bet matching the player's balance will result in double the payout): ";
+    cin >> userBet;
+    while(true){
+        firstSlot = rand() % (5-0+1) + 0;
+        secondSlot = rand() % (5-0+1) + 0;
+        thirdSlot = rand() % (5-0+1) + 0;
+        cout << "You rolled:" << endl;
+        cout << "| " << singleLine.at(firstSlot) << " | " << singleLine.at(secondSlot) << " | " << singleLine.at(thirdSlot) << " |"<< endl;
+        if(singleLine.at(firstSlot) == singleLine.at(secondSlot) && singleLine.at(secondSlot) == singleLine.at(thirdSlot) && singleLine.at(thirdSlot) == singleLine.at(firstSlot)){
+            if (singleLine.at(firstSlot) == "7"){
+                cout << "Congratulations you won with a payout of 1000x your bet!" << endl;
+                Player1.setBalance(userBet*1000 + Player1.getBalance());
+                Player1.setGamesPlayed(Player1.getGamesPlayed()+1);
+                Player1.setGamesWon(Player1.getGamesWon()+1);
+                Player1.setSlotsPlayed(Player1.getSlotsPlayed()+1);
+            } else if (singleLine.at(firstSlot) == "BARBAR"){
+                cout << "Congratulations you won with a payout of 100x your bet!" << endl;
+                Player1.setBalance(userBet*100 + Player1.getBalance());
+                Player1.setGamesPlayed(Player1.getGamesPlayed()+1);
+                Player1.setGamesWon(Player1.getGamesWon()+1);
+                Player1.setSlotsPlayed(Player1.getSlotsPlayed()+1);
+            } else if (singleLine.at(firstSlot) == "BAR"){
+                cout << "Congratulations you won with a payout of 50x your bet!" << endl;
+                Player1.setBalance(userBet*50 + Player1.getBalance());
+                Player1.setGamesPlayed(Player1.getGamesPlayed()+1);
+                Player1.setGamesWon(Player1.getGamesWon()+1);
+                Player1.setSlotsPlayed(Player1.getSlotsPlayed()+1);
+            } else if (singleLine.at(firstSlot) == "Diamond"){
+                cout << "Congratulations you won with a payout of 25x your bet!" << endl;
+                Player1.setBalance(userBet*25 + Player1.getBalance());
+                Player1.setGamesPlayed(Player1.getGamesPlayed()+1);
+                Player1.setGamesWon(Player1.getGamesWon()+1);
+                Player1.setSlotsPlayed(Player1.getSlotsPlayed()+1);
+            } else if (singleLine.at(firstSlot) == "Cherry"){
+                cout << "Congratulations you won with a payout of 10x your bet!" << endl;
+                Player1.setBalance(userBet*10 + Player1.getBalance());
+                Player1.setGamesPlayed(Player1.getGamesPlayed()+1);
+                Player1.setGamesWon(Player1.getGamesWon()+1);
+                Player1.setSlotsPlayed(Player1.getSlotsPlayed()+1);
+            } else if (singleLine.at(firstSlot) == "Lemon"){
+                cout << "Congratulations you won with a payout of 5x your bet!" << endl;
+                Player1.setBalance(userBet*5 + Player1.getBalance());
+                Player1.setGamesPlayed(Player1.getGamesPlayed()+1);
+                Player1.setGamesWon(Player1.getGamesWon()+1);
+                Player1.setSlotsPlayed(Player1.getSlotsPlayed()+1);
+            }
+        }else{
+            cout << "You Lost, better luck next time!" << endl;
+            Player1.setBalance(Player1.getBalance() - userBet);
+            Player1.setGamesPlayed(Player1.getGamesPlayed()+1);
+            Player1.setGamesLost(Player1.getGamesLost()+1);
+            Player1.setSlotsPlayed(Player1.getSlotsPlayed()+1); 
+        }
+        cout << "1) Play again" << endl;
+        cout << "2) Play again with same bet" << endl;
+        cout << "3) Quit" << endl;
+        cout << "Enter here: ";
+        cin >> userChoice;
+        if (!cin.fail() && userChoice >= 1 && userChoice <= 3){
+            if(userChoice == 1){
+                cout << "How much would you like to bet (A bet matching the player's balance will result in double the payout): ";
+                cin >> userBet;
+            } else if(userChoice == 2){
+                continue;
+            } else{
+                break;
+            }
+        }else{
+            cerr << "Invalid input please enter a number between 1 and 3" << endl;
+            cin.clear();
+            char badChar; 
+            do { badChar = cin.get(); } while( badChar != '\n' );
+        }
+
+    }
+
+    
+}

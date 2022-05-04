@@ -63,7 +63,7 @@ int main(int argc, char* argv[]) {
             } else if (userChoice == 2) {
                 blackjackGame(Player1);
             } else if (userChoice == 3){
-                cout << "Slots" << endl;
+                singleLineSlots(Player1);
             } else if(userChoice == 4){
                 Player1.printStats();
             } else if(userChoice == 5){
