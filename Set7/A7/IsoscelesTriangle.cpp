@@ -1,8 +1,17 @@
+/* CSCI 261: Assignment 7: A7 - Triangle Land
+ *
+ * Garrett Thompson
+ * 
+ * This assignment is meant to practice polymorphism and inheritance of classes as well as virtual functions.  The assignment allows us to draw the c++ logo in SFML through 
+ * triangles.
+ * 
+ */
 #include <SFML/Graphics.hpp>
 using namespace sf;
 #include "IsoscelesTriangle.h"
 #include <cmath>
 bool IsoscelesTriangle::setCoordinates(double x1, double y1, double x2, double y2, double x3, double y3){
+  // Implemented isosceles to determine if it is valid or not and to push the vertices back to the list
   float d1 = sqrt((x2-x1)*(x2-x1) + (y2-y1)*(y2-y1));
   float d2 = sqrt((x3-x2)*(x3-x2) + (y3-y2)*(y3-y2));
   float d3 = sqrt((x1-x3)*(x1-x3) + (y1-y3)*(y1-y3));

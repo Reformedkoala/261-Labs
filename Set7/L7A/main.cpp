@@ -1,3 +1,11 @@
+/* CSCI 261: Lab 7A - SFML Drawing
+ *
+ * Author: Garrett Thompson
+ *
+ * This lab is meant to help get a grasp on the SFML graphics library and start to understand what we can do with it.
+ * 
+ */
+
 #include <SFML/Graphics.hpp>
 using namespace sf;
 
@@ -24,7 +32,6 @@ int main() {
         /////////////////////////////////////
         // BEGIN DRAWING HERE
 
-        // Draw a circle object called star and color it yellow
         RectangleShape rect5;
         rect5.setSize( Vector2f( 1920, 1080 ) );
         rect5.setPosition( 0, 0 );
@@ -37,7 +44,6 @@ int main() {
         star.setFillColor( Color::Green );
         window.draw( star);
         
-        // Draw a rectangle object called rect and color it blue
         RectangleShape rect;
         rect.setSize( Vector2f( 45, 150 ) );
         rect.setPosition( 960, 500 );
@@ -49,8 +55,7 @@ int main() {
         star2.setRadius(100 );
         star2.setFillColor( Color::Green );
         window.draw( star2);
-        
-        // Draw a rectangle object called rect and color it blue
+
         RectangleShape rect2;
         rect2.setSize( Vector2f( 45, 150 ) );
         rect2.setPosition( 1160, 500 );
@@ -63,7 +68,6 @@ int main() {
         star3.setFillColor( Color::Green );
         window.draw( star3 );
         
-        // Draw a rectangle object called rect and color it blue
         RectangleShape rect3;
         rect3.setSize( Vector2f( 45, 150 ) );
         rect3.setPosition( 760, 500 );

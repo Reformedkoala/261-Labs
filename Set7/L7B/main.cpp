@@ -1,3 +1,13 @@
+/* CSCI 261: Lab 7B - Starcraft
+ *
+ * Author: Garrett Thompson
+ *
+ * This lab is meant to help practice inheritance and the use of classes when interacting with objects. This program takes a list of star coordinates and brightness in order
+ * to draw them on a star chart using SFML
+ * 
+ */
+
+
 #include <SFML/Graphics.hpp>
 #include <vector>
 #include <iostream>
@@ -11,7 +21,6 @@ int main(int argc, char* argv[]) {
 
     /////////////////////////////////////
     // BEGIN ANY FILE LOADING
-
     string filename;
     if(argc == 1) {
         cout << "Please enter the name for your file here: ";
@@ -25,6 +34,7 @@ int main(int argc, char* argv[]) {
         cerr << "  filename   - optional file to open upon start" << endl;
         return -2;
     }
+
     // open file for parsing
     ifstream fileIn;
     fileIn.open(filename);
@@ -33,7 +43,7 @@ int main(int argc, char* argv[]) {
         return -1;
     }
     cout << "File opened successfully" << endl;
-
+    // Initializing variables for file reading
     vector<Star> starList;
     float xPos;
     float yPos;
@@ -42,6 +52,7 @@ int main(int argc, char* argv[]) {
     int draperValue;
     int harvardValue;
 
+    // While true loop to help read the file and set all coordinates needed
     while(true){
         fileIn >> xPos;
         fileIn >> yPos;
@@ -72,7 +83,7 @@ int main(int argc, char* argv[]) {
 
         /////////////////////////////////////
         // BEGIN DRAWING HERE
-
+        // Loop to draw the stars in SFML
         for(int i = 0; i < starList.size(); i++){
             window.draw(starList.at(i));
         }

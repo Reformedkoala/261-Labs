@@ -1,3 +1,11 @@
+/* CSCI 261: Assignment 7: A7 - Triangle Land
+ *
+ * Garrett Thompson
+ * 
+ * This assignment is meant to practice polymorphism and inheritance of classes as well as virtual functions.  The assignment allows us to draw the c++ logo in SFML through 
+ * triangles.
+ * 
+ */
 #include <SFML/Graphics.hpp>
 #include <vector>
 #include <iostream>
@@ -36,7 +44,8 @@ int main(int argc, char* argv[]) {
         return -1;
     }
     cout << "File opened successfully" << endl;
-
+    
+    //Initializing all variables I need for the file reading
     vector<Triangle*> TriangleList;
     char triangleType;
     double x1;  
@@ -49,6 +58,7 @@ int main(int argc, char* argv[]) {
     int g; 
     int b;
     while(true){
+        // Reading in the file(inefficient maybe but easy)
         fileIn >> triangleType;
         fileIn >> x1;
         fileIn >> y1;
@@ -59,6 +69,7 @@ int main(int argc, char* argv[]) {
         fileIn >> r;
         fileIn >> g;
         fileIn >> b;
+        // Runtime polymorphism to help determine if scalene, equilateral, or isosceles
         if(triangleType == 'S'){
             ScaleneTriangle* sTriangle;
             sTriangle = new ScaleneTriangle;
@@ -112,6 +123,7 @@ int main(int argc, char* argv[]) {
 
         /////////////////////////////////////
         // BEGIN DRAWING HERE
+        // Drawing all triangles
         for(int i = 0; i < TriangleList.size(); i++){
             TriangleList.at(i)->draw(window);
         }
