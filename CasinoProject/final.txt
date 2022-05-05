@@ -1,0 +1,38 @@
+TITLE: Casino with no Consequences
+
+PROBLEM DESCRIPTION: This program creates a simulation of a casino for the user to
+play and gamble in. The casino will not take any currency hence the name casino with no
+consequences and you can go as much in debt as you please. The user will be able to gamble as
+much as these please and at various games with roulette, blackjack, and a slot machine. The user has unique stats
+saved through their own player file
+
+PROGRAM DOCUMENTATION:  The way to run my program is by simply executing it and the user will be prompted with the choice to create a new user or choose an existing player
+from a file on their local machine. Once the user has created a player they can now choose from 5 different options of roulette, blackjack, or slots as well as choosing
+to print out their stats or balance to see what they have. After choosing one of the three games they will be prompted with game specific choices such as what and where to bet
+or like with blackjack they will play it out by hitting, standing, or doubling down. Their are instruction for all games provided through the CLI that the user can read through.
+Finally some things you can extend upon with this program is the player class as there are some more abstractions that could be made such as abstracting the way I update
+the players stats after they win or lose a game. I simply had already implemented the way I updated the player stats, but it definitely could be done better. Also, it's pretty
+easy to implement more games with the player class as well as update the file that all the stats are stored in to add more features to the program. One thing I would also love
+to look in to maybe over the summer is adding graphics to all of the games I made as I think it's possible to do and could be an interesting side project with sfml. 
+
+DATA STRUCTURE: I chose to user vectors in a bunch of different things in my program such as storing game pieces and player data. I believe vectors are super easy to work with
+and I just needed some sort of dynamic array that could be templated and I wouldn't have to create it myself. Vectrors are super easy to implement and in some sections I needed
+a 2D array which with vectors is super easy to do. It applied in both storing the deck for blackjack, the table for roulette, and the different options for slots. As well as 
+being helpful in storing player data when reading it in.
+
+TESTS: Test 1: Running the program with ./Casino.exe only and creating a new user. When the user runs the program they should select create a new user which will then prompt
+them for a username. The user can then enter any string and it will become their username and a player object will be constructed using that. To perform this test case run
+the program, enter 1, then enter a username.
+Test 2: Running the program with ./Casino.exe Reformedkoala.txt (file provided in the zip that contains a base user) and then selecting one of the next options 1-6. This test
+case can be done by running ./Casino.exe Reformedkoala.txt, then selecting 1-6 to play a game or print stats or balance.
+Test 3: Running the program with just ./Casino.exe and entering a number outside 1 or 2 that is invalid. This will not break the program and re-prompt the user for input.
+Test 4: Running the program with ./Casino.exe Reformedkoala.txt and entering a number not between 1 and 6. This will not break the program and will re-prompt the user for input.
+Test 5: Running the program with ./Casino.exe Reformedkoala.txt and entering a game of roulette, blackjack, or slots. Just follow the prompt and play to completion for each game.
+The program should complete each game accordingly and correctly allowing the user to have a proper simulation of the casino if they please.
+
+REFLECTIONS: I learned a lot about how to abstract things and better implement games. I've never really implemented any games in code besides the one we did for LCR so this 
+was very enjoyable and was a completely new experience. I'm more used to implementing data science pojects or utility scripts rather then games like this. However, I really
+enjoyed this and it was a good change of pace for me. It also gave me some ideas of how I could do things better with abstraction and possibly implementing graphics. I think
+I could maybe run this on a webserver online somewhere or even turn it into a discord bot because of the way it runs of Command Line Interface. If I put this online I would most
+likely implement graphics for it because it seems like it could be a fun project. I'm sure I would learn a ton from that as well. I did encounter some problems originally with
+how I was creating the player originally and storing it in a file, but I figured that out with a little trial and error and now it works exactly how I'd like it too.
