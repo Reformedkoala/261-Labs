@@ -1,3 +1,13 @@
+/* CSCI 261: Final Project: Casino
+ *
+ * Garrett Thompson
+ * 
+ * This is the implementation for the Player class of my project that helps define what a player is to the computer and provides me with tons of functionality and usage throughout the 
+ * program. A bulk of the player class is initializing it as well as saving the data after the user is done. Making the user experience fluid was the key with this class and 
+ * allowing them to create their own player in the casino was the goal.
+ * 
+ * 
+ */
 #include <vector>
 #include <iostream>
 #include <fstream>
@@ -7,6 +17,7 @@
 using namespace std;
 
 Player::Player(){
+    // Default constructor that allows the user to choose a username and initializes a file with the name of their player
     string username;
     cout << "What would you like your username to be?" << endl;
     getline(cin, username);
@@ -24,11 +35,13 @@ Player::Player(){
 }
 
 Player::Player(string inputFileName){
+    //Overloaded constructor that accounts for if the user enter a faulty file name by creating what they entered and informing them as such
     string tempString;
     int tempInt;
     ifstream fileIn;
     fileIn.open(inputFileName);
     if (fileIn.fail()) {
+        cout << "File failed to open your acount will now be created with the username you entered." << endl;
         cout << "Your account has been initialized with 1000 dollars under the username of " << inputFileName << endl;
         mUsername = inputFileName;
         mBalance = 1000;
@@ -41,6 +54,7 @@ Player::Player(string inputFileName){
         mGamesPlayedTypes.push_back(0);
         mPlayerFile = inputFileName +".txt";
         return;
+    // This reads in the file the user has specified
     }else{
         mPlayerFile = inputFileName;
         cout << "User's file opened successfully" << endl;
@@ -72,12 +86,14 @@ Player::Player(string inputFileName){
 
 
 Player::~Player(){
+    // Default destructor of the file that handles the case of the file not being able to open or a user deleting it while playing by just exiting the program
     ofstream outputFile;
     outputFile.open(mPlayerFile);
     if (outputFile.fail()) {
         cerr << "Error opening user's file please try again";
         exit(EXIT_FAILURE);
     }
+    // Does all the writing of the output file and overwrites the old data
     outputFile << "Username: " << mUsername << "\n";
     outputFile << "Balance: " << mBalance << "\n";
     outputFile << "Played: " << mGamesPlayed << "\n";
@@ -92,6 +108,7 @@ Player::~Player(){
 
 
 void Player::printStats(){
+    // Print Stats method that just returns all of the current users stats
     cout << "Username: " << mUsername << endl;
     cout << "Balance: " << mBalance << endl;
     cout << "Played: " << mGamesPlayed << endl;
@@ -103,6 +120,7 @@ void Player::printStats(){
     cout << "Slots: " << mGamesPlayedTypes.at(2) << endl;
 }
 
+//EVERYTHING BELOW IS JUST GETTERS AND SETTERS THAT SIMPLY RETURN OR SET VALUES THEREFORE I WILL NOT COMMENT ALL OF THEM.
 void Player::printBalance(){
     cout << "Balance: " << mBalance << endl; 
 }
