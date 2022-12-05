@@ -18,7 +18,7 @@ struct Node {
      * @brief the value of this Node
      * 
      */
-    T value;
+    int value;
     /**
      * @brief pointer to the next element of the linked list
      * 
